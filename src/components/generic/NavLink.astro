@@ -1,0 +1,24 @@
+---
+const {
+  href,
+  title,
+  icon,
+  fill = "currentColor",
+  iconClass = "size-6",
+} = Astro.props;
+
+const icons = import.meta.glob("../../assets/icons/*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+const svgRaw = icon
+  ? (icons[`../../assets/icons/${icon}.svg`] as string)
+  : null;
+const svgContent =
+  svgRaw?.replace(/<svg/, `<svg fill="${fill}" class="${iconClass}"`) ?? "";
+---
+
+<a href={href} title={title} class="p-1" aria-label={title}>
+  {svgContent && <Fragment set:html={svgContent} />}
+</a>

@@ -1,7 +1,13 @@
 ---
-import "../assets/app.css";
+import NavLink from "./generic/NavLink.astro";
 ---
 
 <nav>
-  ...
+  <NavLink title="Introduction" href="#introduction" icon="home" />
+  <NavLink title="Education" href="#education" icon="school" />
+  <NavLink title="Experience" href="#experience" icon="work_history" />
+  <NavLink title="Projects" href="#projects" icon="assignment_turned_in" />
+  <NavLink title="Tech Stack" href="#tech-stack" icon="computer" />
+  <NavLink title="FAQ" href="#faq" icon="help" />
+  <NavLink title="Contact" href="#contact" icon="contact_page" />
 </nav>

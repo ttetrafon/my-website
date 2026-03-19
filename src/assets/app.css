@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
 :root {
   --colour-primary: #0000;
@@ -15,4 +14,14 @@
   --color-secondary: var(--colour-secondary);
   --color-tertiary: var(--colour-tertiary);
   --color-quaternary: var(--colour-quaternary);
+}
+
+@layer base {
+  nav {
+    @apply fixed bottom-10 left-1/2 -translate-x-1/2 flex flex-row flex-nowrap gap-4 border border-black rounded-xl p-1;
+  }
+}
+
+@layer components {
+
 }
