@@ -1,0 +1,12 @@
+---
+interface Props {
+  number: number;
+  text: string;
+}
+const { number, text } = Astro.props;
+---
+
+<div class="flex flex-col gap-1">
+  <p class="text-4xl md:text-5xl">{number}+</p>
+  <p class="text-xl md:text-3xl uppercase">{text}</p>
+</div>

@@ -1,3 +1,45 @@
+---
+import IntroBlock from "./generic/IntroBlock.astro";
+import NavLink from "./generic/NavLink.astro";
+
+const yearsOfExperience = new Date().getFullYear() - 2017;
+---
+
 <article id="introduction">
-  <h1>Introduction</h1>
+  <h1 class="font-extrabold text-center text-3xl">Tryfon Titonis</h1>
+  <p class="text-xl font-bold italic text-center">
+    Solutions Architect & Software Engineer
+  </p>
+  <p class="text-lg italic text-center">Thessaloniki, Greece</p>
+  <div class="flex flex-row flex-nowrap gap-2">
+    <NavLink
+      title="GitHub"
+      href="https://github.com/ttetrafon"
+      icon="github"
+      target="_blank"
+    />
+    <NavLink
+      title="LinkedIn"
+      href="https://www.linkedin.com/in/titonis/"
+      icon="linkedin"
+      target="_blank"
+    />
+    <NavLink
+      title="email"
+      href="mailto:info@ttetrafon.com"
+      icon="mail"
+      target="_blank"
+    />
+  </div>
+  <p>
+    Passionate about bringing your ideas to life, building intuitive and robust
+    custom applications.
+  </p>
+  <div class="flex flex-row flex-nowrap gap-2 justify-center mt-4">
+    <IntroBlock number={yearsOfExperience} text="years of experience" />
+    <!-- TODO: count projects -->
+    <IntroBlock number={0} text="projects completed" />
+    <!-- TODO: count clients -->
+    <IntroBlock number={0} text="worldwide clients" />
+  </div>
 </article>

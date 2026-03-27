@@ -1,5 +1,18 @@
 ---
-const { href, title, icon, iconClass = "size-6" } = Astro.props;
+interface Props {
+  href: string;
+  title: string;
+  icon: string;
+  target?: string;
+  iconClass?: string;
+}
+const {
+  href,
+  title,
+  icon,
+  target = "_self",
+  iconClass = "size-6",
+} = Astro.props;
 
 const icons = import.meta.glob("../../assets/icons/*.svg", {
   query: "?raw",
@@ -14,6 +27,6 @@ const svgContent =
   "";
 ---
 
-<a href={href} title={title} class="p-1" aria-label={title}>
+<a href={href} title={title} class="p-1" aria-label={title} target={target}>
   {svgContent && <Fragment set:html={svgContent} />}
 </a>
