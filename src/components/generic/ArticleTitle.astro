@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  icon: string;
+}
+const { title, icon } = Astro.props;
+
+const icons = import.meta.glob("../../assets/icons/*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+const svgRaw = icon
+  ? (icons[`../../assets/icons/${icon}.svg`] as string)
+  : null;
+const svgContent =
+  svgRaw?.replace(/<svg/, `<svg class="rounded-md fill-action size-8"`) ?? "";
+---
+
+<h1 class="flex flex-row gap-2 items-center justify-center">
+  {svgContent && <Fragment set:html={svgContent} />}
+  <span class="pb-1">{title}</span>
+</h1>
