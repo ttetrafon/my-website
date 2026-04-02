@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  text?: string;
+  note?: string;
+  items?: string;
+}
+const { title, text, note, items } = Astro.props;
+
+const data = {
+  certifications: [
+    "Cloud Developer Associate (DVA)",
+    "Cloud Practitioner (CLF)",
+  ],
+  licences: [
+    "Driver's A (motorcycles)",
+    "Driver's B (cars)",
+    "Open Sea Sailing",
+  ],
+  online: [
+    "Computer science, Physics, and Mathematics",
+    "Programming and information technologies",
+    "Big data",
+    "Machine learning",
+    "Game Development",
+    "Psychology (behavioural, crowd)",
+    "Biology (evolution, genetics, behavioural)",
+  ],
+  seminars: [
+    "Business Chinese Summer Camp | University of Relations and Economics, Beijing",
+    "19th Solid State Physics Hellenic Convention | Aristotle University of Thessaloniki, Greece",
+  ],
+};
+---
+
+<section class="my-2 p-2 bg-base w-full rounded-lg border border-typography">
+  <h2>{title}</h2>
+  {text && <p class="mt-2">{text}</p>}
+  {note && <p class="mt-2 text-sm italic">{note}</p>}
+  {
+    items && (
+      <ul class="list-disc ml-4 mt-2">
+        {data[items as keyof typeof data].map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    )
+  }
+</section>

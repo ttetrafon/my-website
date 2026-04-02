@@ -1,3 +1,25 @@
+---
+import ArticleTitle from "./generic/ArticleTitle.astro";
+import EducationItem from "./generic/EducationItem.astro";
+---
+
 <article id="education">
-  <h1>Education</h1>
+  <ArticleTitle title="Eduction" icon="school" />
+  <EducationItem
+    title="Computational Physics, MSc"
+    text="Aristotle University of Thessaloniki, Department of Physics, Faculty of Natural Science"
+    note="Never finished research paper."
+  />
+  <EducationItem
+    title="Physics, BSc"
+    text="Aristotle University of Thessaloniki, Department of Physics, Faculty of Natural Sciences"
+  />
+  <EducationItem title="Certifications" items="certifications" />
+  <EducationItem title="Conventions & Seminars" items="seminars" />
+  <EducationItem
+    title="Online Courses"
+    text="Various online courses on the following thematics:"
+    items="online"
+  />
+  <EducationItem title="Licenses" items="licences" />
 </article>

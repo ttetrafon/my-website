@@ -122,7 +122,7 @@
   }
 
   main {
-    @apply max-w-250 w-full mx-auto md:p-8 lg:p-12;
+    @apply max-w-250 w-full mx-auto md:p-8 lg:p-12 pb-15 md:pb-15 lg:pb-18;
   }
 
   nav {
