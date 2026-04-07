@@ -2,13 +2,30 @@
 import NavLink from "./generic/NavLink.astro";
 ---
 
-<nav class="bg-base">
-  <NavLink title="Introduction" href="#introduction" icon="home" />
-  <NavLink title="Experience" href="#experience" icon="assignment_turned_in" />
-  <!-- <NavLink title="Projects" href="#projects" icon="work_history" /> -->
-  <NavLink title="Tech Stack" href="#tech-stack" icon="computer" />
-  <NavLink title="Education" href="#education" icon="school" />
-  <!-- <NavLink title="Blog" href="#blog" icon="edit" /> -->
-  <!-- <NavLink title="FAQ" href="#faq" icon="help" /> -->
-  <!-- <NavLink title="Contact" href="#contact" icon="contact_page" /> -->
-</nav>
+<header>
+  <nav>
+    <NavLink
+      title="Introduction"
+      href="#introduction"
+      icon="home"
+      fill="base"
+    />
+    <NavLink
+      title="Experience"
+      href="#experience"
+      icon="assignment_turned_in"
+      fill="base"
+    />
+    <!-- <NavLink title="Projects" href="#projects" icon="work_history" fill="base" /> -->
+    <NavLink
+      title="Tech Stack"
+      href="#tech-stack"
+      icon="computer"
+      fill="base"
+    />
+    <NavLink title="Education" href="#education" icon="school" fill="base" />
+    <!-- <NavLink title="Blog" href="#blog" icon="edit" fill="base" /> -->
+    <!-- <NavLink title="FAQ" href="#faq" icon="help" fill="base"/> -->
+    <!-- <NavLink title="Contact" href="#contact" icon="contact_page" fill="base"/> -->
+  </nav>
+</header>

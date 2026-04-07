@@ -5,6 +5,7 @@ interface Props {
   icon: string;
   target?: string;
   iconClass?: string;
+  fill?: string;
 }
 const {
   href,
@@ -12,7 +13,16 @@ const {
   icon,
   target = "_self",
   iconClass = "size-6",
+  fill = "action",
 } = Astro.props;
+
+const fillClass: Record<string, string> = {
+  action: "fill-action",
+  base: "fill-base",
+  typography: "fill-typography",
+  background: "fill-background",
+};
+const resolvedFill = fillClass[fill] ?? "fill-action";
 
 const icons = import.meta.glob("../../assets/icons/*.svg", {
   query: "?raw",
@@ -23,8 +33,10 @@ const svgRaw = icon
   ? (icons[`../../assets/icons/${icon}.svg`] as string)
   : null;
 const svgContent =
-  svgRaw?.replace(/<svg/, `<svg class="rounded-md fill-action ${iconClass}"`) ??
-  "";
+  svgRaw?.replace(
+    /<svg/,
+    `<svg class="rounded-md ${resolvedFill} ${iconClass}"`,
+  ) ?? "";
 ---
 
 <a href={href} title={title} class="p-1" aria-label={title} target={target}>

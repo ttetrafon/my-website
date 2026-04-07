@@ -17,7 +17,7 @@ const svgContent =
   svgRaw?.replace(/<svg/, `<svg class="rounded-md fill-action size-8"`) ?? "";
 ---
 
-<h1 class="flex flex-row gap-2 items-center justify-center">
+<h1 class="flex flex-row gap-2 items-center justify-center mb-4">
   {svgContent && <Fragment set:html={svgContent} />}
   <span class="pb-1">{title}</span>
 </h1>

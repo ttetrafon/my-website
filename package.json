@@ -1,7 +1,7 @@
 {
 	"name": "ttetrafon",
 	"type": "module",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"engines": {
 		"node": ">=22",
 		"pnpm": ">=10"
@@ -12,7 +12,8 @@
 		"preview": "astro build && astro preview",
 		"astro": "astro",
 		"generate-types": "wrangler types",
-		"deploy": "pnpm run cf-typegen && astro build && wrangler deploy",
+		"last-updated": "node scripts/last-updated.js",
+		"deploy": "pnpm run cf-typegen && pnpm run last-updated && astro build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
