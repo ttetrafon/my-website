@@ -1,5 +1,3 @@
 # https://pnpm.io/settings
-minimumReleaseAge: 21600
 trustPolicy: no-downgrade
 blockExoticSubdeps: true
-nodeLinker: hoisted

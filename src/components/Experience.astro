@@ -1,3 +1,77 @@
+---
+import ArticleTitle from "./generic/ArticleTitle.astro";
+import ExperienceProjects from "./generic/ExperienceProjects.astro";
+import ExperienceSection from "./generic/ExperienceSection.astro";
+---
+
 <article id="experience">
-  <h1>Experience</h1>
+  <ArticleTitle title="Experience" icon="assignment_turned_in" />
+  <ExperienceSection
+    company="Freelancing"
+    title="Solutions Architect & Full Stack Engineer"
+    location="Remote (EU & USA)"
+    started="2017"
+  >
+    <ul class="xp-list">
+      <li>...</li>
+    </ul>
+    <ExperienceProjects />
+  </ExperienceSection>
+  <ExperienceSection
+    company="ITSAUR"
+    title="Backend Engineer"
+    location="Greece, Thessaloniki"
+    started="October 2024"
+    finished="October 2025"
+  >
+    <ul class="xp-list">
+      <li>
+        Development & DevOps of an airport warehouse management and automation
+        system as part of an inter-company team (Docker swarm, Jenkins, Java).
+      </li>
+    </ul>
+    <ExperienceProjects />
+  </ExperienceSection>
+  <ExperienceSection
+    company="Polar Moment"
+    title="Cloud Engineer & Full Stack Developer"
+    location="Remote (UK)"
+    started="September 2019"
+    finished="September 2023"
+  >
+    <ul class="xp-list">
+      <li>...</li>
+    </ul>
+    <ExperienceProjects />
+  </ExperienceSection>
+  <ExperienceSection
+    company="Bio-Morphis"
+    title="Junior Full Stack Developer"
+    location="Remote (UK)"
+    started="December 2018"
+    finished="September 2019"
+  >
+    <ul class="xp-list">
+      <li>Co-developed and deployed a Tomcat server backend (Java).</li>
+      <li>Helped in designing a frontend framework.</li>
+      <li>
+        Designed and deployed the relevant frontend (JS, HTML, CSS, Ajax,
+        WebSocket).
+      </li>
+      <li>Thought out and implemented the UX and parts of the UI.</li>
+      <li>Helped in developing a real-time system monitoring tool (C++).</li>
+    </ul>
+  </ExperienceSection>
+  <ExperienceSection
+    company="Freelancing"
+    title="Scientific Paper Editor/Writer"
+    location="Remote (GR)"
+    started="2012"
+    finished="2019"
+  >
+    <ul class="xp-list">
+      <li>Guided others during writing scientific papers and thesis.</li>
+      <li>Proofread scientific papers and thesis.</li>
+    </ul>
+  </ExperienceSection>
 </article>

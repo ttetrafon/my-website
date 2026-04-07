@@ -146,6 +146,28 @@
   h2 {
     @apply font-bold text-xl self-start italic;
   }
+
+  ul.xp-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul.xp-list li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  ul.xp-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--colour-typography);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 -960 960 960' width='48'%3E%3Cpath d='M400-318 247-471l42-42 111 111 271-271 42 42-313 313Z'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
 }
 
 @layer components {

@@ -1,0 +1,41 @@
+---
+interface Props {
+  company: string;
+  title: string;
+  location: string;
+  started: string;
+  finished?: string;
+}
+const { company, title, location, started, finished } = Astro.props;
+
+import expandIcon from "../../assets/icons/expand.svg?raw";
+const maskUri = `url("data:image/svg+xml,${encodeURIComponent(expandIcon)}")`;
+---
+
+<details class="w-full mb-2 rounded-md border border-typography bg-base">
+  <summary
+    class="cursor-pointer p-2 rounded-md flex flex-row flex-nowrap gap-2 before:block before:self-center before:size-6 before:shrink-0 before:bg-action before:mask-contain before:mask-no-repeat"
+    style={`--expand-icon: ${maskUri}`}
+  >
+    <div class="flex flex-col items-stretch w-full gap-1">
+      <div class="flex flex-row flex-nowrap items-baseline justify-between">
+        <h2>{company}</h2>
+        <span class="text-action">{location}</span>
+      </div>
+      <hr />
+      <div class="flex flex-row flex-nowrap items-baseline justify-between">
+        <h3>{title}</h3>
+        <span class="text-action"
+          >{started} - {finished ? finished : "now"}</span
+        >
+      </div>
+    </div>
+  </summary>
+  <section class="ml-6 p-4"><slot /></section>
+</details>
+
+<style>
+  summary::before {
+    mask-image: var(--expand-icon);
+  }
+</style>
