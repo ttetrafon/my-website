@@ -1,8 +1,10 @@
 ---
 import IntroBlock from "./generic/IntroBlock.astro";
 import NavLink from "./generic/NavLink.astro";
+import { clients } from "./Clients.astro";
 
 const yearsOfExperience = new Date().getFullYear() - 2017;
+const numClients = clients.length;
 ---
 
 <article id="introduction">
@@ -39,7 +41,6 @@ const yearsOfExperience = new Date().getFullYear() - 2017;
     <IntroBlock number={yearsOfExperience} text="years of experience" />
     <!-- TODO: count projects -->
     <IntroBlock number={0} text="projects completed" />
-    <!-- TODO: count clients -->
-    <IntroBlock number={0} text="worldwide clients" />
+    <IntroBlock number={numClients} text="worldwide clients" />
   </div>
 </article>

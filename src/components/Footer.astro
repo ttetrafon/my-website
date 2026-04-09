@@ -1,13 +1,46 @@
 ---
+import NavLink from "./generic/NavLink.astro";
+
 const now = new Date();
 const year = now.getFullYear();
 
-const lastUpdated = "07/04/2026";
+const lastUpdated = "09/04/2026";
 ---
 
 <footer class="flex flex-row flex-nowrap justify-between items-center">
   <span id="last-updated" class="italic whitespace-nowrap px-2"
     >Last Update: {lastUpdated}</span
   >
+  <nav>
+    <NavLink
+      title="Introduction"
+      href="#introduction"
+      icon="home"
+      fill="base"
+    />
+    <NavLink
+      title="Experience"
+      href="#experience"
+      icon="work_history"
+      fill="base"
+    />
+    <NavLink
+      title="Projects"
+      href="#projects"
+      icon="assignment_turned_in"
+      fill="base"
+    />
+    <NavLink title="Clients" href="#clients" icon="loyalty" fill="base" />
+    <NavLink
+      title="Tech Stack"
+      href="#tech-stack"
+      icon="computer"
+      fill="base"
+    />
+    <NavLink title="Education" href="#education" icon="school" fill="base" />
+    <!-- <NavLink title="Blog" href="#blog" icon="edit" fill="base" /> -->
+    <!-- <NavLink title="FAQ" href="#faq" icon="help" fill="base"/> -->
+    <!-- <NavLink title="Contact" href="#contact" icon="contact_page" fill="base"/> -->
+  </nav>
   <span class="px-2">Copyright © 2019-{year}</span>
 </footer>
