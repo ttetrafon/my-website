@@ -1,11 +1,25 @@
 ---
 import ArticleTitle from "./generic/ArticleTitle.astro";
 import ProjectTile from "./generic/ProjectTile.astro";
+
+interface project {
+  title: string;
+  date: string;
+}
+export const projects: Record<string, project> = {
+  takozidis: {
+    title: "Takozidis.gr",
+    date: "March 2026",
+  },
+};
+
+// Order the projects manually from latest to earliest
+export const ps: string[] = ["takozidis"];
 ---
 
 <article id="projects">
   <ArticleTitle title="Projects & Achievements" icon="assignment_turned_in" />
   <section class="w-full flex flex-row flex-wrap justify-center gap-2">
-    <ProjectTile title="Takozidis.gr" date="March 2026" />
+    {ps.map((p) => <ProjectTile project={p} />)}
   </section>
 </article>

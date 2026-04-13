@@ -21,7 +21,11 @@ const logoSrc = logoEntry ? (logoEntry[1] as string) : null;
 
 <section class="border border-typography bg-base rounded-md p-2 cursor-pointer">
   <h4 class="flex flex-row flex-nowrap items-center gap-1">
-    {logoSrc && <img src={logoSrc} alt={`${name} logo`} class="size-5" />}
+    {
+      logoSrc && (
+        <img loading="lazy" src={logoSrc} alt={`${name} logo`} class="size-5" />
+      )
+    }
     <a class="text-action" href={website} target="_blank">
       {name}
     </a>
