@@ -1,6 +1,236 @@
 ---
 import ArticleTitle from "../generic/ArticleTitle.astro";
 import TechStackItem from "../generic/TechStackItem.astro";
+
+export interface TechItem {
+  title: string;
+  icon?: string;
+  yearsUsed?: number[];
+}
+export const techStack = {
+  // Languages
+  Bash: {
+    title: "Bash",
+    icon: "bash",
+    yearsUsed: [
+      2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
+      2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026,
+    ],
+  },
+  Cpp: {
+    title: "C++",
+    icon: "cpp",
+    yearsUsed: [2018, 2019, 2020, 2021, 2022, 2023],
+  },
+  Csharp: { title: "C#", icon: "csharp", yearsUsed: [2015, 2016, 2025] },
+  CSS3: {
+    title: "CSS3",
+    icon: "css",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Go: { title: "Go", icon: "go", yearsUsed: [2025, 2026] },
+  HTML5: {
+    title: "HTML5",
+    icon: "html",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Java: {
+    title: "Java",
+    icon: "java",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
+  JavaScript: {
+    title: "JavaScript",
+    icon: "javascript",
+    yearsUsed: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  NoSQL: {
+    title: "NoSQL",
+    icon: "sql",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Powershell: {
+    title: "Powershell",
+    icon: "powershell",
+    yearsUsed: [2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Python: {
+    title: "Python",
+    icon: "python",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  SQL: {
+    title: "SQL",
+    icon: "sql",
+    yearsUsed: [
+      2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026,
+    ],
+  },
+  Solidity: { title: "Solidity", icon: "solidity", yearsUsed: [2025] },
+  TypeScript: {
+    title: "TypeScript",
+    icon: "typescript",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  WolframMathematica: {
+    title: "Wolfram Mathematica",
+    icon: "wolfram",
+    yearsUsed: [
+      2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
+      2017, 2018, 2026,
+    ],
+  },
+
+  // Frameworks & Libraries
+  Angular: {
+    title: "Angular",
+    icon: "angular",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023],
+  },
+  Astro: { title: "Astro", icon: "astro", yearsUsed: [2025, 2026] },
+  Electron: { title: "Electron", icon: "electron", yearsUsed: [1019, 2020] },
+  Ethers: { title: "Ethers", icon: "ethers", yearsUsed: [2025] },
+  ExpressJS: {
+    title: "Express.js",
+    icon: "express",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
+  GraphQL: { title: "GraphQL", icon: "graphql", yearsUsed: [2024, 2025] },
+  JavaSpring: {
+    title: "Java Spring",
+    icon: "spring",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
+  OpenGL: { title: "OpenGL", icon: "opengl", yearsUsed: [2020, 2021] },
+  React: {
+    title: "React",
+    icon: "react",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  ReactNative: {
+    title: "React Native",
+    icon: "react",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023],
+  },
+  Unity: { title: "Unity", icon: "unity", yearsUsed: [2019, 2020, 2025] },
+  UnrealEngine: {
+    title: "Unreal Engine",
+    icon: "unreal",
+    yearsUsed: [2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Vite: { title: "Vite", icon: "vite", yearsUsed: [2023, 2024, 2025, 2026] },
+  Vue: { title: "Vue", icon: "vue", yearsUsed: [2019, 2020, 2021, 2022, 2023] },
+  Web3JS: { title: "Web3.js", icon: "web3js", yearsUsed: [2025] },
+  WebComponents: {
+    title: "Web Components",
+    icon: "webcomponents",
+    yearsUsed: [2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  WebGL: { title: "WebGL", icon: "webgl", yearsUsed: [2019, 2020, 2024, 2025] },
+
+  // Tools & Platforms
+  Android: {
+    title: "Android",
+    icon: "android",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024],
+  },
+  ApacheTomcat: {
+    title: "Apache Tomcat",
+    icon: "tomcat",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023],
+  },
+  AWS: {
+    title: "AWS",
+    icon: "aws",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Blender: {
+    title: "Blender",
+    icon: "blender",
+    yearsUsed: [2023, 2024, 2025, 2026],
+  },
+  CloudFlare: {
+    title: "CloudFlare",
+    icon: "cloudflare",
+    yearsUsed: [2025, 2026],
+  },
+  Docker: { title: "Docker", icon: "docker", yearsUsed: [2023, 2024, 2025] },
+  DynamoDB: {
+    title: "DynamoDB",
+    icon: "dynamodb",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023],
+  },
+  Git: {
+    title: "Git",
+    icon: "git",
+    yearsUsed: [
+      2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
+      2022, 2023, 2024, 2025, 2026,
+    ],
+  },
+  Jira: {
+    title: "Jira",
+    icon: "jira",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
+  Kubernetes: {
+    title: "Kubernetes",
+    icon: "kubernetes",
+    yearsUsed: [2022, 2023, 2024, 2025],
+  },
+  MongoDB: { title: "MongoDB", icon: "mongodb", yearsUsed: [2022, 2023, 2024] },
+  MySQL: {
+    title: "MySQL",
+    icon: "mysql",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024],
+  },
+  NodeJS: {
+    title: "Node.js",
+    icon: "nodejs",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  },
+  Notion: { title: "Notion", icon: "notion", yearsUsed: [2025] },
+  PostgreSQL: {
+    title: "PostgreSQL",
+    icon: "postgresql",
+    yearsUsed: [2021, 2022, 2023, 2024, 2025],
+  },
+  SQLite: { title: "SQLite", icon: "sqlite", yearsUsed: [2025, 2026] },
+  Supabase: { title: "Supabase", icon: "supabase", yearsUsed: [2025, 2026] },
+  Web3: {
+    title: "Web3",
+    icon: "web3",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
+  WindowsServer: {
+    title: "Windows Server",
+    icon: "microsoft",
+    yearsUsed: [2020, 2021, 2022],
+  },
+  Wildfly: {
+    title: "Wildfly",
+    icon: "wildfly",
+    yearsUsed: [2019, 2020, 2021, 2022, 2023],
+  },
+
+  // Core Competences
+  BlockchainDevelopment: { title: "Blockchain Development" },
+  CloudArchitecting: { title: "Cloud Architecting" },
+  DevOps: { title: "DevOps" },
+  FullstackWebDevelopment: { title: "Fullstack Web Development" },
+  MobileDevelopment: { title: "Mobile Development" },
+  ProjectManagement: { title: "Project Management" },
+  ScientificProgramming: { title: "Scientific Programming" },
+  SoftwareEngineering: { title: "Software Engineering & Design" },
+  UXDesign: { title: "UX Design" },
+
+  // Core Skills
+  AttentionToDetail: { title: "Attention to Detail" },
+  CustomerFacingSkills: { title: "Customer Facing Skills" },
+  ProblemSolving: { title: "Problem Solving" },
+};
+
+export type TechStackKey = keyof typeof techStack;
 ---
 
 <article id="tech-stack">
@@ -8,99 +238,99 @@ import TechStackItem from "../generic/TechStackItem.astro";
 
   <h2 class="front-line">Languages</h2>
   <div class="tech-stack-container">
-    <TechStackItem title="JavaScript" icon="javascript" />
-    <TechStackItem title="TypeScript" icon="typescript" />
-    <TechStackItem title="Java" icon="java" />
-    <TechStackItem title="Python" icon="python" />
-    <TechStackItem title="C++" icon="cpp" />
-    <TechStackItem title="C#" icon="csharp" />
-    <TechStackItem title="Go" icon="go" />
-    <TechStackItem title="Wolfram Mathematica" icon="wolfram" />
+    <TechStackItem key="JavaScript" />
+    <TechStackItem key="TypeScript" />
+    <TechStackItem key="Java" />
+    <TechStackItem key="Python" />
+    <TechStackItem key="Cpp" />
+    <TechStackItem key="Csharp" />
+    <TechStackItem key="Go" />
+    <TechStackItem key="WolframMathematica" />
 
-    <TechStackItem title="Bash" icon="bash" />
-    <TechStackItem title="Powershell" icon="powershell" />
+    <TechStackItem key="Bash" />
+    <TechStackItem key="Powershell" />
 
-    <TechStackItem title="SQL" icon="sql" />
-    <TechStackItem title="NoSQL" icon="sql" />
+    <TechStackItem key="SQL" />
+    <TechStackItem key="NoSQL" />
 
-    <TechStackItem title="HTML5" icon="html" />
-    <TechStackItem title="CSS3" icon="css" />
-    <TechStackItem title="Solidity" icon="solidity" />
+    <TechStackItem key="HTML5" />
+    <TechStackItem key="CSS3" />
+    <TechStackItem key="Solidity" />
   </div>
 
   <h2 class="front-line">Frameworks & Libraries</h2>
   <div class="tech-stack-container">
-    <TechStackItem title="Express.js" icon="express" />
-    <TechStackItem title="Java Spring" icon="spring" />
+    <TechStackItem key="ExpressJS" />
+    <TechStackItem key="JavaSpring" />
 
-    <TechStackItem title="Vite" icon="vite" />
-    <TechStackItem title="Web Components" icon="webcomponents" />
-    <TechStackItem title="Astro" icon="astro" />
-    <TechStackItem title="Angular" icon="angular" />
-    <TechStackItem title="React" icon="react" />
-    <TechStackItem title="Vue" icon="vue" />
+    <TechStackItem key="Vite" />
+    <TechStackItem key="WebComponents" />
+    <TechStackItem key="Astro" />
+    <TechStackItem key="Angular" />
+    <TechStackItem key="React" />
+    <TechStackItem key="Vue" />
 
-    <TechStackItem title="React Native" icon="react" />
-    <TechStackItem title="Electron" icon="electron" />
+    <TechStackItem key="ReactNative" />
+    <TechStackItem key="Electron" />
 
-    <TechStackItem title="GraphQL" icon="graphql" />
+    <TechStackItem key="GraphQL" />
 
-    <TechStackItem title="Ethers" icon="ethers" />
-    <TechStackItem title="Web3.js" icon="web3js" />
+    <TechStackItem key="Ethers" />
+    <TechStackItem key="Web3JS" />
 
-    <TechStackItem title="WebGL" icon="webgl" />
-    <TechStackItem title="OpenGL" icon="opengl" />
-    <TechStackItem title="Unreal Engine" icon="unreal" />
-    <TechStackItem title="Unity" icon="unity" />
+    <TechStackItem key="WebGL" />
+    <TechStackItem key="OpenGL" />
+    <TechStackItem key="UnrealEngine" />
+    <TechStackItem key="Unity" />
   </div>
 
   <h2 class="front-line">Tools & Platforms</h2>
   <div class="tech-stack-container">
-    <TechStackItem title="Git" icon="git" />
+    <TechStackItem key="Git" />
 
-    <TechStackItem title="AWS" icon="aws" />
-    <TechStackItem title="CloudFlare" icon="cloudflare" />
-    <TechStackItem title="Supabase" icon="supabase" />
+    <TechStackItem key="AWS" />
+    <TechStackItem key="CloudFlare" />
+    <TechStackItem key="Supabase" />
 
-    <TechStackItem title="MySQL" icon="mysql" />
-    <TechStackItem title="PostgreSQL" icon="postgresql" />
-    <TechStackItem title="SQLite" icon="sqlite" />
-    <TechStackItem title="MongoDB" icon="mongodb" />
-    <TechStackItem title="DynamoDB" icon="dynamodb" />
+    <TechStackItem key="MySQL" />
+    <TechStackItem key="PostgreSQL" />
+    <TechStackItem key="SQLite" />
+    <TechStackItem key="MongoDB" />
+    <TechStackItem key="DynamoDB" />
 
-    <TechStackItem title="Android" icon="android" />
-    <TechStackItem title="Node.js" icon="nodejs" />
-    <TechStackItem title="Web3" icon="web3" />
+    <TechStackItem key="Android" />
+    <TechStackItem key="NodeJS" />
+    <TechStackItem key="Web3" />
 
-    <TechStackItem title="Apache Tomcat" icon="tomcat" />
-    <TechStackItem title="Wildfly" icon="wildfly" />
-    <TechStackItem title="Windows Server" icon="microsoft" />
-    <TechStackItem title="Docker" icon="docker" />
-    <TechStackItem title="Kubernetes" icon="kubernetes" />
+    <TechStackItem key="ApacheTomcat" />
+    <TechStackItem key="Wildfly" />
+    <TechStackItem key="WindowsServer" />
+    <TechStackItem key="Docker" />
+    <TechStackItem key="Kubernetes" />
 
-    <TechStackItem title="Jira" icon="jira" />
-    <TechStackItem title="Notion" icon="notion" />
+    <TechStackItem key="Jira" />
+    <TechStackItem key="Notion" />
 
-    <TechStackItem title="Blender" icon="blender" />
+    <TechStackItem key="Blender" />
   </div>
 
   <h2 class="self-center text-lg font-normal text-action">Core Competences</h2>
   <div class="tech-stack-container">
-    <TechStackItem title="Cloud Architecting" />
-    <TechStackItem title="Software Engineering & Design" />
-    <TechStackItem title="Fullstack Web Development" />
-    <TechStackItem title="DevOps" />
-    <TechStackItem title="UX Design" />
-    <TechStackItem title="Project Management" />
-    <TechStackItem title="Scientific Programming" />
-    <TechStackItem title="Mobile Development" />
-    <TechStackItem title="Blockchain Development" />
+    <TechStackItem key="CloudArchitecting" />
+    <TechStackItem key="SoftwareEngineering" />
+    <TechStackItem key="FullstackWebDevelopment" />
+    <TechStackItem key="DevOps" />
+    <TechStackItem key="UXDesign" />
+    <TechStackItem key="ProjectManagement" />
+    <TechStackItem key="ScientificProgramming" />
+    <TechStackItem key="MobileDevelopment" />
+    <TechStackItem key="BlockchainDevelopment" />
   </div>
 
   <h2 class="self-center text-lg font-normal text-action">Core Skills</h2>
   <div class="tech-stack-container">
-    <TechStackItem title="Problem Solving" />
-    <TechStackItem title="Attention to Detail" />
-    <TechStackItem title="Customer Facing Skills" />
+    <TechStackItem key="ProblemSolving" />
+    <TechStackItem key="AttentionToDetail" />
+    <TechStackItem key="CustomerFacingSkills" />
   </div>
 </article>

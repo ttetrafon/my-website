@@ -1,25 +1,43 @@
 ---
+import {
+  techStack,
+  type TechItem,
+  type TechStackKey,
+} from "../sections/TechStack.astro";
+
 interface Props {
-  title: string;
-  icon?: string;
+  key: TechStackKey;
+  insert?: boolean;
 }
-const { title, icon } = Astro.props;
+const { key, insert = false } = Astro.props;
+
+const ti: TechItem = techStack[key];
 
 const icons = import.meta.glob("../../assets/icons/*.svg", {
   query: "?raw",
   import: "default",
   eager: true,
 });
-const svgRaw = icon
-  ? (icons[`../../assets/icons/${icon}.svg`] as string)
+const svgRaw = ti.icon
+  ? (icons[`../../assets/icons/${ti.icon}.svg`] as string)
   : null;
 const svgContent =
-  svgRaw?.replace(/<svg/, `<svg class="rounded-md fill-action size-6"`) ?? "";
+  svgRaw
+    ?.replace(/<svg/, `<svg class="rounded-md fill-action size-6"`)
+    .replace(/<title>.*?<\/title>/s, "") ?? "";
 ---
 
 <p
-  class="flex flex-row gap-2 items-center justify-center rounded-lg p-2 border border-typography bg-base"
+  class={`flex flex-row gap-2 items-center justify-center rounded-lg ${insert ? "p-1" : "p-2 bg-base border border-typography"}`}
+  title={ti.title}
 >
   {svgContent && <Fragment set:html={svgContent} />}
-  <span>{title}</span>
+  {!insert && <span>{ti.title}</span>}
+  {
+    !insert && ti.yearsUsed && (
+      <span class="text-xs text-action self-start">
+        {ti.yearsUsed.length}+ years
+      </span>
+    )
+  }
 </p>

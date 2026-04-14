@@ -1,15 +1,18 @@
 ---
 import ArticleTitle from "../generic/ArticleTitle.astro";
 import ProjectTile from "../generic/ProjectTile.astro";
+import type { TechStackKey } from "./TechStack.astro";
 
-interface project {
+export interface Project {
   title: string;
   date: string;
+  techStack: TechStackKey[];
 }
-export const projects: Record<string, project> = {
+export const projects: Record<string, Project> = {
   takozidis: {
     title: "Takozidis.gr",
     date: "March 2026",
+    techStack: ["CloudFlare", "Astro", "SQLite", "TypeScript"],
   },
 };
 
