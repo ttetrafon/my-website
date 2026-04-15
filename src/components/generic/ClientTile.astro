@@ -1,31 +1,18 @@
 ---
+import icon from "../../assets/icons/open_in_new.svg?raw";
+import Logo from "./Logo.astro";
+
 interface Props {
   name: string;
   website: string;
   logo?: string;
 }
 const { name, website, logo } = Astro.props;
-
-import icon from "../../assets/icons/open_in_new.svg?raw";
-
-const logos = import.meta.glob("../../assets/client-logos/*", {
-  import: "default",
-  eager: true,
-});
-const logoEntries = Object.entries(logos);
-const logoEntry = logo
-  ? logoEntries.find(([path]) => path.includes(`/${logo}.`))
-  : null;
-const logoSrc = logoEntry ? (logoEntry[1] as string) : null;
 ---
 
 <section class="border border-typography bg-base rounded-md p-2 cursor-pointer">
   <h4 class="flex flex-row flex-nowrap items-center gap-1">
-    {
-      logoSrc && (
-        <img loading="lazy" src={logoSrc} alt={`${name} logo`} class="size-5" />
-      )
-    }
+    <Logo logo={logo} />
     <a class="text-action" href={website} target="_blank">
       {name}
     </a>

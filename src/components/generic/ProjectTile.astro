@@ -1,5 +1,8 @@
 ---
-import { projects, type Project } from "../sections/Projects.astro";
+import icon from "../../assets/icons/open_in_new.svg?raw";
+import { projects, type ProjectsKey } from "../sections/Projects.astro";
+import type { TechStackKey } from "../sections/TechStack.astro";
+import Logo from "./Logo.astro";
 import TechStackItem from "./TechStackItem.astro";
 
 interface Props {
@@ -7,14 +10,45 @@ interface Props {
 }
 const { project } = Astro.props;
 
-const p: Project = projects[project];
+const p = projects[project as ProjectsKey];
 ---
 
-<section class="w-[32%] border border-typography bg-base rounded-md p-2">
-  <h2>{p.title}</h2>
-  <span>{p.date}</span>
-  <!--  -->
+<section class="w-[32%] border border-typography bg-base rounded-md px-2 py-1">
+  <div class="flex flex-row flex-nowrap items-start justify-between gap-3">
+    <h2 class="flex flex-row flex-nowrap items-center gap-1 mt-2">
+      <Logo logo={p.logo} />
+      <span>{p.title}</span>
+    </h2>
+    <span class="italic text-action">{p.date}</span>
+  </div>
+  <!-- description -->
+  {
+    p.description.length > 0 && (
+      <ul class="project-list">
+        {p.description.map((d) => (
+          <li class="p-2 flex flex-col flex-nowrap items-start text-center">
+            {d.explanation && <span>{d.explanation}</span>}
+            {d.link && (
+              <a
+                href={d.link.url}
+                target="_blank"
+                class="flex flex-row flex-nowrap items-start gap-1 self-center text-action italic underline border border-typography bg-background rounded-sm p-1 mt-1"
+              >
+                {d.link.text}
+                <span class="inline-icon [&>svg]:size-4" set:html={icon} />
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  <!-- tech stack -->
   <div class="flex flex-row gap-2">
-    {p.techStack.map((ti) => <TechStackItem key={ti} insert={true} />)}
+    {
+      p.techStack.map((ti) => (
+        <TechStackItem key={ti as TechStackKey} insert={true} />
+      ))
+    }
   </div>
 </section>

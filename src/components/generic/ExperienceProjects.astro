@@ -1,1 +1,12 @@
-<section><slot /></section>
+---
+import { projects, type ProjectsKey } from "../sections/Projects.astro";
+
+interface Props {
+  prj?: ProjectsKey[];
+}
+const { prj = [] } = Astro.props;
+---
+
+<section>
+  {prj.length > 0 && prj.map((p) => <p>... {projects[p].title}</p>)}
+</section>

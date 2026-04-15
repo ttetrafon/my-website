@@ -1,0 +1,18 @@
+---
+interface Props {
+  logo?: string;
+}
+const { logo } = Astro.props;
+
+const logos = import.meta.glob("../../assets/client-logos/*", {
+  import: "default",
+  eager: true,
+});
+const logoEntries = Object.entries(logos);
+const logoEntry = logo
+  ? logoEntries.find(([path]) => path.includes(`/${logo}.`))
+  : null;
+const logoSrc = logoEntry ? (logoEntry[1] as string) : null;
+---
+
+{logoSrc && <img loading="eager" src={logoSrc} alt="logo" class="size-5" />}

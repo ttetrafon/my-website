@@ -5,10 +5,12 @@ interface Props {
   location: string;
   started: string;
   finished?: string;
+  projects?: ProjectsKey[];
 }
-const { company, title, location, started, finished } = Astro.props;
+const { company, title, location, started, finished, projects } = Astro.props;
 
 import expandIcon from "../../assets/icons/expand.svg?raw";
+import type { ProjectsKey } from "../sections/Projects.astro";
 const maskUri = `url("data:image/svg+xml,${encodeURIComponent(expandIcon)}")`;
 ---
 

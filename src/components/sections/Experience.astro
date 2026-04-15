@@ -6,6 +6,7 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
 
 <article id="experience">
   <ArticleTitle title="Experience" icon="work_history" />
+
   <ExperienceSection
     company="Freelancing"
     title="Solutions Architect & Full Stack Engineer"
@@ -15,8 +16,9 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
     <ul class="xp-list">
       <li>...</li>
     </ul>
-    <ExperienceProjects />
+    <ExperienceProjects prj={["takozidis"]} />
   </ExperienceSection>
+
   <ExperienceSection
     company="ITSAUR"
     title="Backend Engineer"
@@ -32,6 +34,7 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
     </ul>
     <ExperienceProjects />
   </ExperienceSection>
+
   <ExperienceSection
     company="Polar Moment"
     title="Cloud Engineer & Full Stack Developer"
@@ -44,6 +47,7 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
     </ul>
     <ExperienceProjects />
   </ExperienceSection>
+
   <ExperienceSection
     company="Bio-Morphis"
     title="Junior Full Stack Developer"
@@ -62,6 +66,7 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
       <li>Helped in developing a real-time system monitoring tool (C++).</li>
     </ul>
   </ExperienceSection>
+
   <ExperienceSection
     company="Freelancing"
     title="Scientific Paper Editor/Writer"

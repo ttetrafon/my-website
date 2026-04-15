@@ -5,19 +5,46 @@ import type { TechStackKey } from "./TechStack.astro";
 
 export interface Project {
   title: string;
+  logo: string;
   date: string;
+  description: {
+    explanation?: string;
+    link?: {
+      url: string;
+      text: string;
+    };
+  }[];
   techStack: TechStackKey[];
 }
-export const projects: Record<string, Project> = {
+export const projects = {
   takozidis: {
     title: "Takozidis.gr",
+    logo: "takozidis",
+    description: [
+      {
+        explanation: "Reworked site from WorldPress to ReactRouter.",
+        link: {
+          url: "https://www.takozids.gr",
+          text: "Website (live)",
+        },
+      },
+      {
+        explanation: "Added e-shop and CMS functionality.",
+        link: {
+          url: "https://takozidis-website-staging.ttetrafon.workers.dev/",
+          text: "e-shop (staging)",
+        },
+      },
+    ],
     date: "March 2026",
-    techStack: ["CloudFlare", "Astro", "SQLite", "TypeScript"],
+    techStack: ["CloudFlare", "Astro", "ReactRouter", "SQLite", "TypeScript"],
   },
 };
 
-// Order the projects manually from latest to earliest
-export const ps: string[] = ["takozidis"];
+export type ProjectsKey = keyof typeof projects;
+
+// Order (and filter) the projects manually...
+export const ps: ProjectsKey[] = ["takozidis"];
 ---
 
 <article id="projects">

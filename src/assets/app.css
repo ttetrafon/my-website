@@ -154,7 +154,7 @@
     @apply font-bold text-lg self-start text-action;
   }
 
-  ul.xp-list {
+  ul.xp-list, ul.project-list {
     list-style: none;
     padding-left: 0;
   }
@@ -166,8 +166,8 @@
     content: "";
     position: absolute;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    /* top: 50%;
+    transform: translateY(-50%); */
     width: 1.5rem;
     height: 1.5rem;
     background-color: var(--colour-typography);
