@@ -10,7 +10,9 @@ interface Props {
 const { name, website, logo } = Astro.props;
 ---
 
-<section class="border border-typography bg-base rounded-md p-2 cursor-pointer">
+<section
+  class="border border-typography bg-basis rounded-md p-2 cursor-pointer"
+>
   <h4 class="flex flex-row flex-nowrap items-center gap-1">
     <Logo logo={logo} />
     <a class="text-action" href={website} target="_blank">

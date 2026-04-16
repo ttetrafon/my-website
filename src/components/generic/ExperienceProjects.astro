@@ -1,5 +1,6 @@
 ---
 import { projects, type ProjectsKey } from "../sections/Projects.astro";
+import ProjectRef from "./ProjectRef.astro";
 
 interface Props {
   prj?: ProjectsKey[];
@@ -7,6 +8,9 @@ interface Props {
 const { prj = [] } = Astro.props;
 ---
 
-<section>
-  {prj.length > 0 && prj.map((p) => <p>... {projects[p].title}</p>)}
+<section class="mx-4">
+  <h2 class="text-center text-lg mt-4" aria-label="Projects">Projects</h2>
+  <div class="flex flex-row flex-wrap items-start justify-center">
+    {prj.map((p) => <ProjectRef prj={p} />)}
+  </div>
 </section>

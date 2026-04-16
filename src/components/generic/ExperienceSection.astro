@@ -14,20 +14,20 @@ import type { ProjectsKey } from "../sections/Projects.astro";
 const maskUri = `url("data:image/svg+xml,${encodeURIComponent(expandIcon)}")`;
 ---
 
-<details class="w-full mb-2 rounded-md border border-typography bg-base">
+<details class="w-full mb-2 rounded-md border border-typography bg-basis">
   <summary
     class="cursor-pointer p-2 rounded-md flex flex-row flex-nowrap gap-2 before:block before:self-center before:size-6 before:shrink-0 before:bg-action before:mask-contain before:mask-no-repeat"
     style={`--expand-icon: ${maskUri}`}
   >
     <div class="flex flex-col items-stretch w-full gap-1">
-      <div class="flex flex-row flex-nowrap items-baseline justify-between">
+      <div class="flex flex-row flex-nowrap items-basisline justify-between">
         <h2>{title}</h2>
         <span class="text-action"
           >{started} - {finished ? finished : "now"}</span
         >
       </div>
       <hr class="color-action" />
-      <div class="flex flex-row flex-nowrap items-baseline justify-between">
+      <div class="flex flex-row flex-nowrap items-basisline justify-between">
         <h3>{company}</h3>
         <span class="text-action">{location}</span>
       </div>

@@ -3,107 +3,107 @@
 :root {
   --colour-typography: #452829;
   --colour-action: #57595B;
-  --colour-base: #E8D1C5;
+  --colour-basis: #E8D1C5;
   --colour-background: #F3E8DF;
   /* --colour-typography: #BF4646;
   --colour-action: #d4923c;
-  --colour-base: #FFF4EA;
+  --colour-basis: #FFF4EA;
   --colour-background: #7EACB5; */
   /* --colour-typography: #87B6BC;
   --colour-action: #BED4CB;
-  --colour-base: #F6F09F;
+  --colour-basis: #F6F09F;
   --colour-background: #B35656; */
   /* --colour-typography: #F3F4F4;
   --colour-action: #853953;
-  --colour-base: #612D53;
+  --colour-basis: #612D53;
   --colour-background: #2C2C2C; */
   /* --colour-typography: #662222;
   --colour-action: #842A3B;
-  --colour-base: #A3485A;
+  --colour-basis: #A3485A;
   --colour-background: #F5DAA7; */
   /* --colour-typography: #5DD3B6;
   --colour-action: #6E5034;
-  --colour-base: #CDB885;
+  --colour-basis: #CDB885;
   --colour-background: #EFE1B5; */
   /* --colour-typography: #EBE1D1;
   --colour-action: #41644A;
-  --colour-base: #0D4715;
+  --colour-basis: #0D4715;
   --colour-background: #E9762B; */
   /* --colour-typography: #EAEFEF;
   --colour-action: #BFC9D1;
-  --colour-base: #25343F;
+  --colour-basis: #25343F;
   --colour-background: #FF9B51; */
   /* --colour-typography: #576A8F;
   --colour-action: #B7BDF7;
-  --colour-base: #FFF8DE;
+  --colour-basis: #FFF8DE;
   --colour-background: #FF7444; */
   /* --colour-typography: #97A87A;
   --colour-action: #A8BBA3;
-  --colour-base: #FCF9EA;
+  --colour-basis: #FCF9EA;
   --colour-background: #FFA239; */
   /* --colour-typography: #001F3D;
   --colour-action: #ED985F;
-  --colour-base: #F7B980;
+  --colour-basis: #F7B980;
   --colour-background: #E6E6E6; */
   /* --colour-typography: #254F22;
   --colour-action: #A03A13;
-  --colour-base: #F5824A;
+  --colour-basis: #F5824A;
   --colour-background: #EDE4C2; */
   /* --colour-typography: #3F9AAE;
   --colour-action: #79C9C5;
-  --colour-base: #FFE2AF;
+  --colour-basis: #FFE2AF;
   --colour-background: #F96E5B; */
   /* --colour-typography: #FAF3E1;
   --colour-action: #F5E7C6;
-  --colour-base: #FF6D1F;
+  --colour-basis: #FF6D1F;
   --colour-background: #222222; */
   /* --colour-typography: #8A8635;
   --colour-action: #AA2B1D;
-  --colour-base: #CC561E;
+  --colour-basis: #CC561E;
   --colour-background: #F3CF7A; */
   /* --colour-typography: #5A9CB5;
   --colour-action: #FACE68;
-  --colour-base: #FAAC68;
+  --colour-basis: #FAAC68;
   --colour-background: #FA6868; */
   /* --colour-typography: #91C6BC;
   --colour-action: #4B9DA9;
-  --colour-base: #F6F3C2;
+  --colour-basis: #F6F3C2;
   --colour-background: #E37434; */
   /* --colour-typography: #FFFDE1;
   --colour-action: #FBE580;
-  --colour-base: #93BD57;
+  --colour-basis: #93BD57;
   --colour-background: #980404; */
   /* --colour-typography: #6E026F;
   --colour-action: #ABDADC;
-  --colour-base: #F1E6C9;
+  --colour-basis: #F1E6C9;
   --colour-background: #FA891A; */
   /* --colour-typography: #574964;
   --colour-action: #9F8383;
-  --colour-base: #C8AAAA;
+  --colour-basis: #C8AAAA;
   --colour-background: #FFDAB3; */
   /* --colour-typography: #30364F;
   --colour-action: #ACBAC4;
-  --colour-base: #E1D9BC;
+  --colour-basis: #E1D9BC;
   --colour-background: #F0F0DB; */
   /* --colour-typography: #F4F0E4;
   --colour-action: #44A194;
-  --colour-base: #537D96;
+  --colour-basis: #537D96;
   --colour-background: #EC8F8D; */
   /* --colour-typography: #FF5A5A;
   --colour-action: #FF8B5A;
-  --colour-base: #FFA95A;
+  --colour-basis: #FFA95A;
   --colour-background: #FFD45A; */
   /* --colour-typography: #281C59;
   --colour-action: #4E8D9C;
-  --colour-base: #85C79A;
+  --colour-basis: #85C79A;
   --colour-background: #EDF7BD; */
   /* --colour-typography: #C44A3A;
   --colour-action: #D97A2B;
-  --colour-base: #F2D479;
+  --colour-basis: #F2D479;
   --colour-background: #6FAF4F; */
   /* --colour-typography: #EEFABD;
   --colour-action: #A0D585;
-  --colour-base: #6984A9;
+  --colour-basis: #6984A9;
   --colour-background: #263B6A; */
 }
 
@@ -112,13 +112,13 @@
 
   --color-typography: var(--colour-typography);
   --color-action: var(--colour-action);
-  --color-base: var(--colour-base);
+  --color-basis: var(--colour-basis);
   --color-background: var(--colour-background);
 }
 
 @layer base {
   body {
-    @apply bg-base h-full font-sans;
+    @apply bg-basis h-full font-sans;
   }
 
   main {
@@ -138,7 +138,7 @@
   }
 
   footer {
-    @apply fixed bottom-0 left-0 right-0 bg-action text-base;
+    @apply fixed bottom-0 left-0 right-0 bg-action text-basis;
   }
 
   h1, h2, h3, h4, h5, h6, p {
