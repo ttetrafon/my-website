@@ -17,7 +17,8 @@ const p: Project = projects[prj as ProjectsKey] as Project;
 <a
   href={`#${p.title}`}
   class="flex flex-row flex-nowrap items-center gap-1 mt-2 bg-background p-2 border border-typography rounded-md"
+  aria-label={p.title}
 >
-  <Logo logo={p.logo} />
+  {p.logo && <Logo logo={p.logo} />}
   <span>{p.title}</span>
 </a>

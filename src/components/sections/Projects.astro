@@ -5,7 +5,7 @@ import type { TechStackKey } from "./TechStack.astro";
 
 export interface Project {
   title: string;
-  logo: string;
+  logo?: string;
   date: string;
   description: {
     explanation?: string;
@@ -14,37 +14,61 @@ export interface Project {
       text: string;
     };
   }[];
+  techDescription?: string[];
   techStack: TechStackKey[];
+  isWide?: boolean;
 }
-export const projects = {
-  takozidis: {
-    title: "Takozidis.gr",
-    logo: "takozidis",
-    description: [
-      {
-        explanation: "Reworked site from WorldPress to ReactRouter.",
-        link: {
-          url: "https://www.takozids.gr",
-          text: "Website (live)",
-        },
-      },
-      {
-        explanation: "Added e-shop and CMS functionality.",
-        link: {
-          url: "https://takozidis-website-staging.ttetrafon.workers.dev/",
-          text: "e-shop (staging)",
-        },
-      },
-    ],
-    date: "March 2026",
-    techStack: ["CloudFlare", "Astro", "ReactRouter", "SQLite", "TypeScript"],
-  },
+
+export const soda: Project = {
+  title: "Sport Bet Arbitration System [POC]",
+  date: "March - July 2024",
+  description: [
+    {
+      explanation:
+        "A continuously running system, scrapping and retrieving betting info from various websites, comparing them, and calculating optimum betting strategies to maximise winnings while minimising loses.",
+    },
+  ],
+  techDescription: [
+    "Microservices architecture with docker images on k8s cluster (AWS EKS).",
+    "Scripting done in Python.",
+    "Communication and requests handled through async requests module.",
+    "APIs implemented on top of FastApi with Uvicorn.",
+  ],
+  techStack: ["AWS", "Python", "JavaScript", "HTML5", "CSS3", "WebComponents"],
+  isWide: true,
 };
+export const takozidis: Project = {
+  title: "Takozidis.gr",
+  logo: "takozidis",
+  date: "March 2026",
+  description: [
+    {
+      explanation: "Reworked site from WorldPress to ReactRouter.",
+      link: {
+        url: "https://www.takozids.gr",
+        text: "Website (live)",
+      },
+    },
+    {
+      explanation: "Added e-shop and CMS functionality.",
+      link: {
+        url: "https://takozidis-website-staging.ttetrafon.workers.dev/",
+        text: "e-shop (staging)",
+      },
+    },
+  ],
+  techDescription: [
+    "Deployed in Cloudflare's workers, with data in D1 (sqlite) and R2 (data bucket).",
+  ],
+  techStack: ["CloudFlare", "Astro", "ReactRouter", "SQLite", "TypeScript"],
+};
+
+export const projects = { soda, takozidis };
 
 export type ProjectsKey = keyof typeof projects;
 
 // Order (and filter) the projects manually...
-export const ps: ProjectsKey[] = ["takozidis"];
+export const ps: ProjectsKey[] = ["takozidis", "soda"];
 ---
 
 <article id="projects">
