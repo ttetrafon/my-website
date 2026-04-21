@@ -15,7 +15,7 @@ const p = projects[project as ProjectsKey];
 
 <section
   id={p.title}
-  class={`flex-1 min-w-1/3 max-w-2/3 border border-typography bg-basis rounded-md px-2 py-1`}
+  class={`project-tile border border-typography bg-basis rounded-md px-2 py-1`}
 >
   <div class="flex flex-row flex-nowrap items-start justify-between gap-3">
     <h2 class="flex flex-row flex-nowrap items-center gap-1 mt-2">
@@ -57,7 +57,7 @@ const p = projects[project as ProjectsKey];
     )
   }
   <h3 class="italic mt-2">Tech Stack</h3>
-  <div class="flex flex-row gap-2">
+  <div class="flex flex-row flex-wrap justify-center gap-2">
     {
       p.techStack.map((ti) => (
         <TechStackItem key={ti as TechStackKey} insert={true} />

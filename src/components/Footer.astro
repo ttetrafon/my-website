@@ -4,11 +4,15 @@ import NavLink from "./generic/NavLink.astro";
 const now = new Date();
 const year = now.getFullYear();
 
-const lastUpdated = "16/04/2026";
+const lastUpdated = "21/04/2026";
 ---
 
-<footer class="flex flex-row flex-nowrap justify-between items-center">
-  <span id="last-updated" class="italic whitespace-nowrap px-2"
+<footer
+  class="flex flex-row flex-nowrap justify-center md:justify-between items-center"
+>
+  <span
+    id="last-updated"
+    class="italic whitespace-nowrap px-2 hidden md:inline-block"
     >Last Update: {lastUpdated}</span
   >
   <nav>
@@ -42,5 +46,5 @@ const lastUpdated = "16/04/2026";
     <!-- <NavLink title="FAQ" href="#faq" icon="help" fill="base"/> -->
     <!-- <NavLink title="Contact" href="#contact" icon="contact_page" fill="base"/> -->
   </nav>
-  <span class="px-2">Copyright © 2019-{year}</span>
+  <span class="px-2 hidden md:inline-block">Copyright © 2019-{year}</span>
 </footer>

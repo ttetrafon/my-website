@@ -22,14 +22,14 @@ const maskUri = `url("data:image/svg+xml,${encodeURIComponent(expandIcon)}")`;
     <div class="flex flex-col items-stretch w-full gap-1">
       <div class="flex flex-row flex-nowrap items-basisline justify-between">
         <h2>{title}</h2>
-        <span class="text-action"
+        <span class="text-action text-right"
           >{started} - {finished ? finished : "now"}</span
         >
       </div>
       <hr class="color-action" />
       <div class="flex flex-row flex-nowrap items-basisline justify-between">
         <h3>{company}</h3>
-        <span class="text-action">{location}</span>
+        <span class="text-action text-right">{location}</span>
       </div>
     </div>
   </summary>

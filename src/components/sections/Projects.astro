@@ -19,6 +19,20 @@ export interface Project {
   isWide?: boolean;
 }
 
+export const myPortfolio: Project = {
+  title: "This Website",
+  date: "April 2026",
+  description: [
+    {
+      explanation: "My online portfolio & CV.",
+      link: {
+        url: "https://github.com/ttetrafon/my-website",
+        text: "GitHub repo",
+      },
+    },
+  ],
+  techStack: ["Astro", "CloudFlare"],
+};
 export const soda: Project = {
   title: "Sport Bet Arbitration System [POC]",
   date: "March - July 2024",
@@ -63,17 +77,19 @@ export const takozidis: Project = {
   techStack: ["CloudFlare", "Astro", "ReactRouter", "SQLite", "TypeScript"],
 };
 
-export const projects = { soda, takozidis };
+export const projects = { myPortfolio, soda, takozidis };
 
 export type ProjectsKey = keyof typeof projects;
 
 // Order (and filter) the projects manually...
-export const ps: ProjectsKey[] = ["takozidis", "soda"];
+export const ps: ProjectsKey[] = ["takozidis", "soda", "myPortfolio"];
 ---
 
 <article id="projects">
   <ArticleTitle title="Projects & Achievements" icon="assignment_turned_in" />
-  <section class="w-full flex flex-row flex-wrap justify-center gap-2">
+  <section
+    class="projects-container w-full flex flex-row flex-wrap justify-center items-start gap-2"
+  >
     {ps.map((p) => <ProjectTile project={p} />)}
   </section>
 </article>
