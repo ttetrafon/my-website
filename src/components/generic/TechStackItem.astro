@@ -7,9 +7,11 @@ import {
 
 interface Props {
   key: TechStackKey;
+  altTitle?: string;
   insert?: boolean;
+  inline?: boolean;
 }
-const { key, insert = false } = Astro.props;
+const { key, altTitle, insert = false, inline = false } = Astro.props;
 
 const ti: TechItem = techStack[key];
 
@@ -23,21 +25,33 @@ const svgRaw = ti.icon
   : null;
 const svgContent =
   svgRaw
-    ?.replace(/<svg/, `<svg class="rounded-md fill-action size-6"`)
+    ?.replace(
+      /<svg/,
+      `<svg class="rounded-md fill-action ${inline ? "size-4" : "size-6"}"`,
+    )
     .replace(/<title>.*?<\/title>/s, "") ?? "";
 ---
 
-<p
-  class={`flex flex-row gap-2 items-center justify-center rounded-lg ${insert ? "p-1" : "p-2 bg-basis border border-typography"}`}
-  title={ti.title}
->
-  {svgContent && <Fragment set:html={svgContent} />}
-  {!insert && <span>{ti.title}</span>}
-  {
-    !insert && ti.yearsUsed && (
-      <span class="text-xs text-action self-start">
-        {ti.yearsUsed.length}+ years
+{
+  inline ? (
+    <span class="inline-block">
+      <span class="flex flex-row flex-nowrap gap-1 items-center">
+        {svgContent && <Fragment set:html={svgContent} />}
+        <b>{altTitle ?? ti.title}</b>
       </span>
-    )
-  }
-</p>
+    </span>
+  ) : (
+    <p
+      class={`flex flex-row gap-2 items-center justify-center rounded-lg ${insert ? "p-1" : "p-2 bg-basis border border-typography"}`}
+      title={ti.title}
+    >
+      {svgContent && <Fragment set:html={svgContent} />}
+      {!insert && <span>{ti.title}</span>}
+      {!insert && ti.yearsUsed && (
+        <span class="text-xs text-action self-start">
+          {ti.yearsUsed.length}+ years
+        </span>
+      )}
+    </p>
+  )
+}

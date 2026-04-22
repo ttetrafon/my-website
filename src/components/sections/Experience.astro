@@ -2,6 +2,7 @@
 import ArticleTitle from "../generic/ArticleTitle.astro";
 import ExperienceProjects from "../generic/ExperienceProjects.astro";
 import ExperienceSection from "../generic/ExperienceSection.astro";
+import TechStackItem from "../generic/TechStackItem.astro";
 ---
 
 <!-- TODO: make the customers/employees and technologies inline elements with their icon and highlighted text! -->
@@ -23,9 +24,11 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
       <li>
         Built a custom, light-weight <b>CMS system</b> to be used in websites with
         minimal needs, like online restaurant menus and information websites. Full
-        system designed as a serverless application on <b>AWS</b>/<b
-          >Cloudflare</b
-        >.
+        system designed as a serverless application on <TechStackItem
+          key="AWS"
+          inline={true}
+        />
+        /<TechStackItem key="CloudFlare" inline={true} />.
       </li>
       <li>
         Built company and personal <b>websites</b> either from the ground up or rebuilt/renewed
@@ -59,13 +62,34 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
         persons total) and dev-ops (2 persons total).
       </li>
       <li>
-        Backend processing and automation in <b>Java</b> (<b>Spring Boot</b>)
-        <b>microservices</b> orchestrated through <b>Docker Swarm</b>,
-        communicating with <b>Kafka</b> and/or <b>web requests</b> as needed.
+        Backend processing and automation in <TechStackItem
+          key="Java"
+          inline={true}
+        /> (<TechStackItem
+          key="JavaSpring"
+          altTitle="Spring Boot"
+          inline={true}
+        />)
+        <b>microservices</b> orchestrated through <TechStackItem
+          key="Java"
+          inline={true}
+          altTitle="Docker Swarm"
+        />, communicating with <TechStackItem
+          key="ApacheKafka"
+          altTitle="Kafka"
+          inline={true}
+        /> and/or <b>web requests</b> as needed.
       </li>
       <li>
-        DevOps in <b>Bash</b>, <b>Java</b>, and <b>Jenkins</b>, system deployed
-        in dedicated, local server (<b>Tomcat</b>) in each warehouse.
+        DevOps in <TechStackItem key="Bash" inline={true} />, <TechStackItem
+          key="Java"
+          inline={true}
+        />, and <TechStackItem key="Jenkins" inline={true} />, system deployed
+        in dedicated, local server (<TechStackItem
+          key="ApacheTomcat"
+          altTitle="Tomcat"
+          inline={true}
+        />) in each warehouse.
       </li>
     </ul>
   </ExperienceSection>
@@ -97,14 +121,30 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
     finished="September 2019"
   >
     <ul class="xp-list">
-      <li>Co-developed and deployed a Tomcat server backend (Java).</li>
-      <li>Helped in designing a frontend framework.</li>
       <li>
-        Designed and deployed the relevant frontend (JS, HTML, CSS, Ajax,
-        WebSocket).
+        Co-developed and deployed a <TechStackItem
+          key="ApacheTomcat"
+          altTitle="Tomcat"
+          inline={true}
+        /> server backend (<TechStackItem key="Java" inline={true} />).
+      </li>
+      <li>
+        Participated in Designing and deploying the relevant frontend (<TechStackItem
+          key="JavaScript"
+          altTitle="JS"
+          inline={true}
+        />, <TechStackItem key="HTML5" inline={true} />, <TechStackItem
+          key="CSS3"
+          inline={true}
+        />, <b>Ajax</b>, <b>WebSockets</b>).
       </li>
       <li>Thought out and implemented the UX and parts of the UI.</li>
-      <li>Helped in developing a real-time system monitoring tool (C++).</li>
+      <li>
+        Helped in developing a real-time system monitoring tool (<TechStackItem
+          key="Cpp"
+          inline={true}
+        />).
+      </li>
     </ul>
   </ExperienceSection>
 
@@ -116,7 +156,9 @@ import ExperienceSection from "../generic/ExperienceSection.astro";
     finished="2019"
   >
     <ul class="xp-list">
-      <li>Guided others during writing scientific papers and thesis.</li>
+      <li>
+        Guided others during writing <b>scientific papers</b> and <b>thesis</b>.
+      </li>
       <li>Proofread scientific papers and thesis.</li>
     </ul>
   </ExperienceSection>
