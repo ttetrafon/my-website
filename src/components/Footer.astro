@@ -1,5 +1,6 @@
 ---
 import NavLink from "./generic/NavLink.astro";
+import * as pcg from "../../package.json";
 
 const now = new Date();
 const year = now.getFullYear();
@@ -46,5 +47,7 @@ const lastUpdated = "22/04/2026";
     <!-- <NavLink title="FAQ" href="#faq" icon="help" fill="base"/> -->
     <!-- <NavLink title="Contact" href="#contact" icon="contact_page" fill="base"/> -->
   </nav>
-  <span class="px-2 hidden md:inline-block">Copyright © 2019-{year}</span>
+  <span class="px-2 hidden md:inline-block"
+    >Copyright © 2019-{year} (version {pcg.version})</span
+  >
 </footer>
