@@ -1,5 +1,9 @@
 ---
-import { projects, type ProjectsKey } from "../sections/Projects.astro";
+import {
+  projects,
+  type Project,
+  type ProjectsKey,
+} from "../sections/Projects.astro";
 import Logo from "./Logo.astro";
 
 interface Props {
@@ -7,7 +11,7 @@ interface Props {
 }
 const { project } = Astro.props;
 
-const p = projects[project as ProjectsKey];
+const p: Project = projects[project as ProjectsKey];
 ---
 
 <section
@@ -21,6 +25,6 @@ const p = projects[project as ProjectsKey];
     </h2>
     <span class="italic text-action text-right">{p.date}</span>
   </div>
-  <!-- description -->
+  <!-- description & spec -->
   <slot />
 </section>

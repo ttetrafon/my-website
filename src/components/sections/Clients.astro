@@ -4,14 +4,26 @@ import ClientTile from "../generic/ClientTile.astro";
 
 interface client {
   name: string;
-  website: string;
-  logo: string;
+  website?: string;
+  logo?: string;
+  display: boolean;
 }
 export const clients: client[] = [
+  // clients to display...
   {
     name: "Takozidis",
     website: "https://www.takozidis.gr/",
     logo: "takozidis",
+    display: true,
+  },
+  // placeholders to count the rest...
+  {
+    name: "Rompolo & Vasilitsa",
+    display: false,
+  },
+  {
+    name: "SODA",
+    display: false,
   },
 ];
 ---
@@ -20,9 +32,11 @@ export const clients: client[] = [
   <ArticleTitle title="Employers & Clients" icon="loyalty" />
   <section class="w-full flex flex-row flex-wrap justify-center gap-2">
     {
-      clients.map((c) => (
-        <ClientTile name={c.name} website={c.website} logo={c.logo} />
-      ))
+      clients
+        .filter((c) => c.display)
+        .map((c) => (
+          <ClientTile name={c.name} website={c.website} logo={c.logo} />
+        ))
     }
   </section>
 </article>

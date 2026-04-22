@@ -134,6 +134,7 @@
   }
 
   article {
+    /* TODO: Maybe limit height on 80% of screen size so long parts (like projects) overflow in place only? */
     @apply flex flex-col items-center p-4 my-2 md:rounded-lg shadow-lg shadow-action bg-background;
   }
 

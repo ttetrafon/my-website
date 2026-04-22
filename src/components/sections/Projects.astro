@@ -3,40 +3,38 @@ import ArticleTitle from "../generic/ArticleTitle.astro";
 import ProjectTile from "../generic/ProjectTile.astro";
 import ProjectTileLink from "../generic/ProjectTileLink.astro";
 import TechStackItem from "../generic/TechStackItem.astro";
-import type { TechStackKey } from "./TechStack.astro";
 
 export interface Project {
   title: string;
   logo?: string;
   date: string;
-  description?: {
-    explanation?: string;
-    link?: {
-      url: string;
-      text: string;
-    };
-  }[];
-  techDescription?: string[];
-  techStack?: TechStackKey[];
-  isWide?: boolean;
 }
 
-export const myPortfolio: Project = {
-  title: "This Website",
-  date: "April 2026",
+export const projects = {
+  chaletRompolo: {
+    title: "Chalet Rompolo",
+    logo: "rompolo",
+    date: "December 2023",
+  },
+  menuEditor: {
+    title: "Online Menu & Editor",
+    date: "December 2023",
+  },
+  myPortfolio: {
+    title: "This Website",
+    logo: "ttetrafon",
+    date: "April 2026",
+  },
+  soda: {
+    title: "Sport Bet Arbitration System [POC]",
+    date: "March - July 2024",
+  },
+  takozidis: {
+    title: "Takozidis.gr",
+    logo: "takozidis",
+    date: "March 2026",
+  },
 };
-export const soda: Project = {
-  title: "Sport Bet Arbitration System [POC]",
-  date: "March - July 2024",
-  isWide: true,
-};
-export const takozidis: Project = {
-  title: "Takozidis.gr",
-  logo: "takozidis",
-  date: "March 2026",
-};
-
-export const projects = { myPortfolio, soda, takozidis };
 
 export type ProjectsKey = keyof typeof projects;
 ---
@@ -81,7 +79,7 @@ export type ProjectsKey = keyof typeof projects;
           />, using a combination of <b>API calls</b> and <b>SSR</b> as needed.
         </li>
         <li>
-          Deployed in <TechStackItem
+          Deployed on <TechStackItem
             key="CloudFlare"
             altTitle="CloudFlare Workers"
             inline={true}
@@ -155,7 +153,77 @@ export type ProjectsKey = keyof typeof projects;
             key="AWS"
             altTitle="AWS (ApiGateway, CloudFront, S3)"
             inline={true}
+          />.
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="chaletRompolo">
+      <ul class="project-list">
+        <li>
+          <span>Chalet Rompolo</span>
+          <ProjectTileLink
+            url="https://chalet-rompolo.com/"
+            title="Website (live)"
           />
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          Built in <TechStackItem key="HTML5" inline={true} />, <TechStackItem
+            key="CSS3"
+            inline={true}
+          />, and <TechStackItem key="JavaScript" inline={true} /> with <TechStackItem
+            key="WebComponents"
+            inline={true}
+          />, and deployed in <TechStackItem
+            key="AWS"
+            altTitle="AWS (ApiGateway, CloudFront, S3)"
+            inline={true}
+          />
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="menuEditor">
+      <ul class="project-list">
+        <li>
+          <span>Minimal live menu & editor for restaurants.</span>
+          <ProjectTileLink
+            url="https://menu.chalet-rompolo.com/"
+            title="Rompolo chalet menu"
+          />
+          <ProjectTileLink
+            url="https://menu.vasilitsa1850.com/"
+            title="Vasilitsa chalet menu"
+          />
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          User and management UI built in <TechStackItem
+            key="HTML5"
+            inline={true}
+          />, <TechStackItem key="CSS3" inline={true} />, and <TechStackItem
+            key="JavaScript"
+            inline={true}
+          /> with <TechStackItem key="WebComponents" inline={true} />, and
+          deployed in <TechStackItem
+            key="AWS"
+            altTitle="AWS (ApiGateway, CloudFront, S3)"
+            inline={true}
+          />
+        </li>
+        <li>
+          <b>CMS</b> system works with <b>API requests</b> on <TechStackItem
+            key="AWS"
+            altTitle="AWS Lambda"
+            inline={true}
+          />. Data stored in <TechStackItem
+            key="AWS"
+            altTitle="AWS S3"
+            inline={true}
+          />, alongside the website assets for immediate updates.
         </li>
       </ul>
     </ProjectTile>
@@ -181,5 +249,14 @@ export type ProjectsKey = keyof typeof projects;
         </li>
       </ul>
     </ProjectTile>
+
+    <!-- <ProjectTile project="myPortfolio">
+      <ul class="project-list">
+        <li>...</li>
+      </ul>
+      <ul class="xp-list">
+        <li>...</li>
+      </ul>
+    </ProjectTile> -->
   </section>
 </article>

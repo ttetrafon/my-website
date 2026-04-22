@@ -4,7 +4,7 @@ import Logo from "./Logo.astro";
 
 interface Props {
   name: string;
-  website: string;
+  website?: string;
   logo?: string;
 }
 const { name, website, logo } = Astro.props;
@@ -15,9 +15,13 @@ const { name, website, logo } = Astro.props;
 >
   <h4 class="flex flex-row flex-nowrap items-center gap-1">
     <Logo logo={logo} />
-    <a class="text-action" href={website} target="_blank">
-      {name}
-    </a>
+    {
+      website && (
+        <a class="text-action" href={website} target="_blank">
+          {name}
+        </a>
+      )
+    }
     <span class="inline-icon [&>svg]:size-4" set:html={icon} />
   </h4>
 </section>
