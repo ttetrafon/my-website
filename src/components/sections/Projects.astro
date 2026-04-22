@@ -1,13 +1,15 @@
 ---
 import ArticleTitle from "../generic/ArticleTitle.astro";
 import ProjectTile from "../generic/ProjectTile.astro";
+import ProjectTileLink from "../generic/ProjectTileLink.astro";
+import TechStackItem from "../generic/TechStackItem.astro";
 import type { TechStackKey } from "./TechStack.astro";
 
 export interface Project {
   title: string;
   logo?: string;
   date: string;
-  description: {
+  description?: {
     explanation?: string;
     link?: {
       url: string;
@@ -15,74 +17,28 @@ export interface Project {
     };
   }[];
   techDescription?: string[];
-  techStack: TechStackKey[];
+  techStack?: TechStackKey[];
   isWide?: boolean;
 }
 
 export const myPortfolio: Project = {
   title: "This Website",
   date: "April 2026",
-  description: [
-    {
-      explanation: "My online portfolio & CV.",
-      link: {
-        url: "https://github.com/ttetrafon/my-website",
-        text: "GitHub repo",
-      },
-    },
-  ],
-  techStack: ["Astro", "CloudFlare"],
 };
 export const soda: Project = {
   title: "Sport Bet Arbitration System [POC]",
   date: "March - July 2024",
-  description: [
-    {
-      explanation:
-        "A continuously running system, scrapping and retrieving betting info from various websites, comparing them, and calculating optimum betting strategies to maximise winnings while minimising loses.",
-    },
-  ],
-  techDescription: [
-    "Microservices architecture with docker images on k8s cluster (AWS EKS).",
-    "Scripting done in Python.",
-    "Communication and requests handled through async requests module.",
-    "APIs implemented on top of FastApi with Uvicorn.",
-  ],
-  techStack: ["AWS", "Python", "JavaScript", "HTML5", "CSS3", "WebComponents"],
   isWide: true,
 };
 export const takozidis: Project = {
   title: "Takozidis.gr",
   logo: "takozidis",
   date: "March 2026",
-  description: [
-    {
-      explanation: "Reworked site from WorldPress to ReactRouter.",
-      link: {
-        url: "https://www.takozids.gr",
-        text: "Website (live)",
-      },
-    },
-    {
-      explanation: "Added e-shop and CMS functionality.",
-      link: {
-        url: "https://takozidis-website-staging.ttetrafon.workers.dev/",
-        text: "e-shop (staging)",
-      },
-    },
-  ],
-  techDescription: [
-    "Deployed in Cloudflare's workers, with data in D1 (sqlite) and R2 (data bucket).",
-  ],
-  techStack: ["CloudFlare", "Astro", "ReactRouter", "SQLite", "TypeScript"],
 };
 
 export const projects = { myPortfolio, soda, takozidis };
 
 export type ProjectsKey = keyof typeof projects;
-
-// Order (and filter) the projects manually...
-export const ps: ProjectsKey[] = ["takozidis", "soda", "myPortfolio"];
 ---
 
 <article id="projects">
@@ -90,6 +46,140 @@ export const ps: ProjectsKey[] = ["takozidis", "soda", "myPortfolio"];
   <section
     class="projects-container w-full flex flex-row flex-wrap justify-center items-start gap-2"
   >
-    {ps.map((p) => <ProjectTile project={p} />)}
+    <ProjectTile project="takozidis">
+      <ul class="project-list">
+        <li>
+          <span>Reworked site from WorldPress to ReactRouter.</span>
+          <ProjectTileLink
+            url="https://www.takozids.gr"
+            title="Website (live)"
+          />
+        </li>
+        <li>
+          <span>Added e-shop and CMS functionality.</span>
+          <ProjectTileLink
+            url="https://takozidis-website-staging.ttetrafon.workers.dev/"
+            title="e-shop (staging)"
+          />
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          UI built on <TechStackItem key="React" inline={true} /> with <TechStackItem
+            key="Tailwind"
+            inline={true}
+          />.
+        </li>
+        <li>
+          Used <TechStackItem key="ReactRouter" inline={true} /> for a combined
+          <b>SPA</b> and <b>SSR</b> result.
+        </li>
+        <li>
+          CMS designed and developed from the ground up in <TechStackItem
+            key="TypeScript"
+            inline={true}
+          />, using a combination of <b>API calls</b> and <b>SSR</b> as needed.
+        </li>
+        <li>
+          Deployed in <TechStackItem
+            key="CloudFlare"
+            altTitle="CloudFlare Workers"
+            inline={true}
+          />.
+        </li>
+        <li>
+          Data stored within <TechStackItem
+            key="CloudFlare"
+            altTitle="CloudFlare's"
+            inline={true}
+          /> ecosystem, <TechStackItem
+            key="SQLite"
+            altTitle="D1 (SQLite)"
+            inline={true}
+          /> and <TechStackItem
+            key="NoSQL"
+            altTitle="R2 (data bucket)"
+            inline={true}
+          />.
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="soda">
+      <ul class="project-list">
+        <li>
+          <span
+            >A continuously running system, scrapping and retrieving betting
+            info from various websites, comparing them, and calculating optimum
+            betting strategies to maximise winnings while minimising loses.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          <b>Microservices</b> architecture with <TechStackItem
+            key="Docker"
+            altTitle="docker images"
+            inline={true}
+          /> on <TechStackItem
+            key="Kubernetes"
+            altTitle="k8s cluster"
+            inline={true}
+          /> (<TechStackItem key="AWS" altTitle="AWS EKS" inline={true} />).
+        </li>
+        <li>
+          Scripting done in <TechStackItem key="Python" inline={true}
+            >.</TechStackItem
+          >
+          <li>
+            Communication between services and requests handled through <b
+              >async requests</b
+            > module.
+          </li>
+          <li>
+            APIs implemented on top of <TechStackItem
+              key="Fastapi"
+              inline={true}
+            /> with <b>Uvicorn</b>.
+          </li>
+        </li>
+        <li>
+          User and management UI built on <TechStackItem
+            key="HTML5"
+            inline={true}
+          />, <TechStackItem key="CSS3" inline={true} />, and <TechStackItem
+            key="JavaScript"
+            inline={true}
+          /> with <TechStackItem key="WebComponents" inline={true} />, and
+          deployed in <TechStackItem
+            key="AWS"
+            altTitle="AWS (ApiGateway, CloudFront, S3)"
+            inline={true}
+          />
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="myPortfolio">
+      <ul class="project-list">
+        <li>
+          <span>My online portfolio & CV.</span>
+          <ProjectTileLink
+            url="https://github.com/ttetrafon/my-website"
+            title="GitHub repo"
+          />
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>Developed in <TechStackItem key="Astro" inline={true} />.</li>
+        <li>
+          Deployed in <TechStackItem
+            key="CloudFlare"
+            altTitle="CloudFlare pages"
+            inline={true}
+          />.
+        </li>
+      </ul>
+    </ProjectTile>
   </section>
 </article>

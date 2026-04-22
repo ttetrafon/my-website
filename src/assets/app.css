@@ -154,7 +154,7 @@
     @apply font-bold text-lg self-start text-action;
   }
 
-  ul.xp-list, ul.project-list {
+  ul.xp-list {
     list-style: none;
     padding-left: 0;
   }
@@ -188,5 +188,17 @@
 
   .project-tile:last-child {
     @apply md:flex-0 md:w-1/3 md:max-w-1/3 md:min-w-1/3;
+  }
+
+  .project-list {
+    @apply list-none pl-0;
+  }
+
+  .project-list > li {
+    @apply p-2 flex flex-col flex-nowrap items-start;
+  }
+
+  .project-description-link {
+    @apply flex flex-row flex-nowrap items-start gap-1 self-center text-action italic underline border border-typography bg-background rounded-sm p-1 mt-1;
   }
 }

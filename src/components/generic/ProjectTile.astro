@@ -1,9 +1,6 @@
 ---
-import icon from "../../assets/icons/open_in_new.svg?raw";
 import { projects, type ProjectsKey } from "../sections/Projects.astro";
-import type { TechStackKey } from "../sections/TechStack.astro";
 import Logo from "./Logo.astro";
-import TechStackItem from "./TechStackItem.astro";
 
 interface Props {
   project: string;
@@ -25,43 +22,5 @@ const p = projects[project as ProjectsKey];
     <span class="italic text-action text-right">{p.date}</span>
   </div>
   <!-- description -->
-  {
-    p.description.length > 0 && (
-      <ul class="project-list">
-        {p.description.map((d) => (
-          <li class="p-2 flex flex-col flex-nowrap items-start">
-            {d.explanation && <span>{d.explanation}</span>}
-            {d.link && (
-              <a
-                href={d.link.url}
-                target="_blank"
-                class="flex flex-row flex-nowrap items-start gap-1 self-center text-action italic underline border border-typography bg-background rounded-sm p-1 mt-1"
-              >
-                {d.link.text}
-                <span class="inline-icon [&>svg]:size-4" set:html={icon} />
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    )
-  }
-  <!-- tech stack -->
-  {
-    p.techDescription && p.techDescription.length > 0 && (
-      <ul class="xp-list">
-        {p.techDescription.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    )
-  }
-  <h3 class="italic mt-2">Tech Stack</h3>
-  <div class="flex flex-row flex-wrap justify-center gap-2">
-    {
-      p.techStack.map((ti) => (
-        <TechStackItem key={ti as TechStackKey} insert={true} />
-      ))
-    }
-  </div>
+  <slot />
 </section>

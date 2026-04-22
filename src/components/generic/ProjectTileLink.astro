@@ -1,0 +1,14 @@
+---
+import icon from "../../assets/icons/open_in_new.svg?raw";
+
+interface Props {
+  title: string;
+  url: string;
+}
+const { title, url } = Astro.props;
+---
+
+<a href={url} target="_blank" class="project-description-link">
+  {title}
+  <span class="inline-icon [&>svg]:size-4" set:html={icon} />
+</a>
