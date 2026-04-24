@@ -15,4 +15,6 @@ const logoEntry = logo
 const logoSrc = logoEntry ? (logoEntry[1] as string) : null;
 ---
 
-{logoSrc && <img loading="lazy" src={logoSrc} alt="logo" class="size-5" />}
+<!-- TODO: Use Image.astro insteaD? -->{
+  logoSrc && <img loading="lazy" src={logoSrc} alt="logo" class="size-5" />
+}

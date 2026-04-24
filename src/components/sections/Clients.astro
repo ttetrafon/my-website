@@ -2,37 +2,121 @@
 import ArticleTitle from "../generic/ArticleTitle.astro";
 import ClientTile from "../generic/ClientTile.astro";
 
-interface client {
+export interface Client {
   name: string;
   website?: string;
   logo?: string;
   display: boolean;
 }
-export const clients: client[] = [
-  // clients to display...
-  {
-    name: "Takozidis",
-    website: "https://www.takozidis.gr/",
-    logo: "takozidis",
-    display: true,
-  },
-  // placeholders to count the rest...
-  {
-    name: "Rompolo & Vasilitsa",
-    display: false,
-  },
-  {
-    name: "SODA",
-    display: false,
-  },
-];
+
+export const dekoClient: Client = {
+  name: "DEKO",
+  logo: "deko",
+  website: "https://www.dekopay.com/",
+  display: true,
+};
+export const gamePaymentTechClient: Client = {
+  name: "Game Payment Technology",
+  logo: "game-payment-technology",
+  website: "https://www.gamepayment.technology/",
+  display: true,
+};
+export const instavoltClient: Client = {
+  name: "Instavolt",
+  website: "https://instavolt.co.uk/",
+  logo: "instavolt",
+  display: true,
+};
+export const itsaurClient: Client = {
+  name: "ITSAUR",
+  logo: "itsaur",
+  website: "https://itsaur.com/",
+  display: true,
+};
+export const latitudeClient: Client = {
+  name: "Latitude-91",
+  logo: "latitude-91",
+  website: "https://www.latitude-91.com/",
+  display: true,
+};
+export const lodigeClient: Client = {
+  name: "Lodige",
+  logo: "lodige",
+  website: "https://www.lodige.co.uk/",
+  display: true,
+};
+export const paxClient: Client = {
+  name: "PAX Technologies",
+  logo: "pax",
+  website: "https://www.paxtechnology.com/",
+  display: true,
+};
+export const pivotalClient: Client = {
+  name: "Pivotal Sec Plus",
+  logo: "pivotal",
+  website: "https://pivotalsecplus.com/",
+  display: true,
+};
+export const planetClient: Client = {
+  name: "Planet Payment",
+  logo: "planet",
+  website: "https://taxfree.weareplanet.com/",
+  display: true,
+};
+export const polarMomentClient: Client = {
+  name: "Polar Moment",
+  logo: "polar-moment",
+  website: "https://www.polarmoment.co.uk/",
+  display: true,
+};
+export const rompoloClient: Client = {
+  name: "Rompolo & Vasilitsa",
+  display: false,
+};
+export const sodaClient: Client = {
+  name: "SODA",
+  display: false,
+};
+export const takozidisClient: Client = {
+  name: "Takozidis",
+  website: "https://www.takozidis.gr/",
+  logo: "takozidis",
+  display: true,
+};
+export const treasureClient: Client = {
+  name: "Treasure",
+  website: "https://treasure.lol/",
+  logo: "treasure",
+  display: true,
+};
+
+export const clients = {
+  // clients to showcase...
+  latitudeClient,
+  polarMomentClient,
+  gamePaymentTechClient,
+  pivotalClient,
+  planetClient,
+  paxClient,
+  instavoltClient,
+  dekoClient,
+  itsaurClient,
+  lodigeClient,
+  treasureClient,
+  takozidisClient,
+  // placeholders just for the reference...
+  rompoloClient,
+  sodaClient,
+};
+export const clientList: Client[] = Object.values(clients);
+export type ClientsKey = keyof typeof clients;
 ---
 
 <article id="clients">
   <ArticleTitle title="Employers & Clients" icon="loyalty" />
   <section class="w-full flex flex-row flex-wrap justify-center gap-2">
     {
-      clients
+      clientList
         .filter((c) => c.display)
         .map((c) => (
           <ClientTile name={c.name} website={c.website} logo={c.logo} />

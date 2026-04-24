@@ -1,9 +1,11 @@
 ---
+import { clients, type Client } from "../sections/Clients.astro";
 import {
   projects,
   type Project,
   type ProjectsKey,
 } from "../sections/Projects.astro";
+import ClientTile from "./ClientTile.astro";
 import Logo from "./Logo.astro";
 
 interface Props {
@@ -12,6 +14,9 @@ interface Props {
 const { project } = Astro.props;
 
 const p: Project = projects[project as ProjectsKey];
+const relatedClients: Client[] = p.clients
+  .map((c) => clients[c])
+  .filter((c) => c.display);
 ---
 
 <section
@@ -27,4 +32,22 @@ const p: Project = projects[project as ProjectsKey];
   </div>
   <!-- description & spec -->
   <slot />
+  <!-- related clients/employees -->
+  {
+    relatedClients.length > 0 && (
+      <>
+        <h3 class="italic mt-4">Clients</h3>
+        <div class="flex-1 flex flex-row flex-wrap gap-2 justify-center items-center p-2">
+          {relatedClients.map((c) => (
+            <ClientTile
+              name={c.name}
+              website={c.website}
+              logo={c.logo}
+              inside={true}
+            />
+          ))}
+        </div>
+      </>
+    )
+  }
 </section>

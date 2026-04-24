@@ -6,12 +6,13 @@ interface Props {
   name: string;
   website?: string;
   logo?: string;
+  inside?: boolean;
 }
-const { name, website, logo } = Astro.props;
+const { name, website, logo, inside = false } = Astro.props;
 ---
 
 <section
-  class="border border-typography bg-basis rounded-md p-2 cursor-pointer"
+  class={`border border-typography ${inside ? "bg-background" : "bg-basis"} rounded-md p-2 cursor-pointer`}
 >
   <h4 class="flex flex-row flex-nowrap items-center gap-1">
     <Logo logo={logo} />

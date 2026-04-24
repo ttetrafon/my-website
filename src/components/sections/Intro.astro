@@ -5,7 +5,7 @@ import { clients } from "./Clients.astro";
 import { projects } from "./Projects.astro";
 
 const yearsOfExperience = new Date().getFullYear() - 2017;
-const numClients = clients.length;
+const numClients = Object.keys(clients).length;
 const numProjects = Object.keys(projects).length;
 ---
 

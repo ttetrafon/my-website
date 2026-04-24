@@ -3,37 +3,50 @@ import ArticleTitle from "../generic/ArticleTitle.astro";
 import ProjectTile from "../generic/ProjectTile.astro";
 import ProjectTileLink from "../generic/ProjectTileLink.astro";
 import TechStackItem from "../generic/TechStackItem.astro";
+import type { ClientsKey } from "./Clients.astro";
 
 export interface Project {
   title: string;
   logo?: string;
   date: string;
+  clients: ClientsKey[];
 }
 
+export const chaletRompolo: Project = {
+  title: "Chalet Rompolo",
+  logo: "rompolo",
+  date: "December 2023",
+  clients: ["rompoloClient"],
+};
+export const menuEditor: Project = {
+  title: "Online Menu & Editor",
+  date: "December 2023",
+  clients: ["rompoloClient"],
+};
+export const myPortfolio: Project = {
+  title: "This Website",
+  logo: "ttetrafon",
+  date: "April 2026",
+  clients: [],
+};
+export const soda: Project = {
+  title: "Sport Bet Arbitration System [POC]",
+  date: "March - July 2024",
+  clients: ["sodaClient"],
+};
+export const takozidis: Project = {
+  title: "Takozidis.gr",
+  logo: "takozidis",
+  date: "March 2026",
+  clients: ["takozidisClient"],
+};
+
 export const projects = {
-  chaletRompolo: {
-    title: "Chalet Rompolo",
-    logo: "rompolo",
-    date: "December 2023",
-  },
-  menuEditor: {
-    title: "Online Menu & Editor",
-    date: "December 2023",
-  },
-  myPortfolio: {
-    title: "This Website",
-    logo: "ttetrafon",
-    date: "April 2026",
-  },
-  soda: {
-    title: "Sport Bet Arbitration System [POC]",
-    date: "March - July 2024",
-  },
-  takozidis: {
-    title: "Takozidis.gr",
-    logo: "takozidis",
-    date: "March 2026",
-  },
+  menuEditor,
+  chaletRompolo,
+  myPortfolio,
+  soda,
+  takozidis,
 };
 
 export type ProjectsKey = keyof typeof projects;
