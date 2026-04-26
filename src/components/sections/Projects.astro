@@ -18,6 +18,17 @@ export const chaletRompolo: Project = {
   date: "December 2023",
   clients: ["rompoloClient"],
 };
+export const instavoltPos: Project = {
+  title: "Electric Vehicle Charging Station POS",
+  date: "2023 - 2024",
+  clients: [
+    "polarMomentClient",
+    "instavoltClient",
+    "paxClient",
+    "mifareClient",
+    "planetClient",
+  ],
+};
 export const menuEditor: Project = {
   title: "Online Menu & Editor",
   date: "December 2023",
@@ -40,13 +51,20 @@ export const takozidis: Project = {
   date: "March 2026",
   clients: ["takozidisClient"],
 };
+export const vendingMachineConnector: Project = {
+  title: "Vending Machine - POS Link",
+  date: "2023",
+  clients: ["polarMomentClient", "paxClient", "planetClient"],
+};
 
 export const projects = {
   menuEditor,
   chaletRompolo,
+  instavoltPos,
   myPortfolio,
   soda,
   takozidis,
+  vendingMachineConnector,
 };
 
 export type ProjectsKey = keyof typeof projects;
@@ -116,6 +134,73 @@ export type ProjectsKey = keyof typeof projects;
       </ul>
     </ProjectTile>
 
+    <ProjectTile project="instavoltPos">
+      <ul class="project-list">
+        <li>
+          <span
+            >Built an <TechStackItem
+              key="Android"
+              altTitle="android app"
+              inline={true}
+            /> to be used on the <b>PAX Terminal</b> attached on EV charging stations.</span
+          >
+        </li>
+        <li>
+          <span
+            >The app acts as the point of contact with the customer using a <b
+              >MiFare</b
+            > or
+            <b>credit card</b> to start a charging session for their connected vehicle.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          App written in <TechStackItem key="Java" inline={true} /> for <TechStackItem
+            key="Android"
+            inline={true}
+          />.
+        </li>
+        <li>
+          <b>Credit card</b> processing handled through <b>Planet Payment</b> SDK
+          and direct <b>https</b> communication with their servers.
+        </li>
+        <li>
+          <b>MiFare card</b> processing handled in-app, with checks performed by communicating
+          directly with MiFare backend services over <b>https</b>.
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="vendingMachineConnector">
+      <ul class="project-list">
+        <li>
+          <span
+            >Built an <TechStackItem
+              key="Android"
+              altTitle="android app"
+              inline={true}
+            /> to be used on the <b>PAX Terminal</b> attached on vending machines.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          App written in <TechStackItem key="Java" inline={true} /> for <TechStackItem
+            key="Android"
+            inline={true}
+          />.
+        </li>
+        <li>
+          <b>Credit card</b> processing handled through <b>Planet Payment</b> SDK
+          and direct <b>https</b> communication with their servers.
+        </li>
+        <li>
+          Communication with the vending machine done over the <b>DEX/UCS</b> protocol.
+        </li>
+      </ul>
+    </ProjectTile>
+
     <ProjectTile project="soda">
       <ul class="project-list">
         <li>
@@ -139,9 +224,10 @@ export type ProjectsKey = keyof typeof projects;
           /> (<TechStackItem key="AWS" altTitle="AWS EKS" inline={true} />).
         </li>
         <li>
-          Scripting done in <TechStackItem key="Python" inline={true}
-            >.</TechStackItem
-          >
+          Scripting and analysis done in <TechStackItem
+            key="Python"
+            inline={true}
+          />.
           <li>
             Communication between services and requests handled through <b
               >async requests</b
@@ -262,14 +348,5 @@ export type ProjectsKey = keyof typeof projects;
         </li>
       </ul>
     </ProjectTile>
-
-    <!-- <ProjectTile project="myPortfolio">
-      <ul class="project-list">
-        <li>...</li>
-      </ul>
-      <ul class="xp-list">
-        <li>...</li>
-      </ul>
-    </ProjectTile> -->
   </section>
 </article>
