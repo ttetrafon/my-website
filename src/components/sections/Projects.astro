@@ -3,7 +3,7 @@ import ArticleTitle from "../generic/ArticleTitle.astro";
 import ProjectTile from "../generic/ProjectTile.astro";
 import ProjectTileLink from "../generic/ProjectTileLink.astro";
 import TechStackItem from "../generic/TechStackItem.astro";
-import type { ClientsKey } from "./Clients.astro";
+import { dekoClient, type ClientsKey } from "./Clients.astro";
 
 export interface Project {
   title: string;
@@ -17,6 +17,11 @@ export const chaletRompolo: Project = {
   logo: "rompolo",
   date: "December 2023",
   clients: ["rompoloClient"],
+};
+export const dekoLink: Project = {
+  title: "DEKO Payment Link",
+  date: "2022",
+  clients: ["polarMomentClient", "dekoClient"],
 };
 export const instavoltPos: Project = {
   title: "Electric Vehicle Charging Station POS",
@@ -40,6 +45,11 @@ export const myPortfolio: Project = {
   date: "April 2026",
   clients: [],
 };
+export const pivotal: Project = {
+  title: "Pivotal Infrastructure",
+  date: "2021 - 2023",
+  clients: ["polarMomentClient", "pivotalClient"],
+};
 export const soda: Project = {
   title: "Sport Bet Arbitration System [POC]",
   date: "March - July 2024",
@@ -58,10 +68,12 @@ export const vendingMachineConnector: Project = {
 };
 
 export const projects = {
-  menuEditor,
   chaletRompolo,
+  dekoLink,
   instavoltPos,
+  menuEditor,
   myPortfolio,
+  pivotal,
   soda,
   takozidis,
   vendingMachineConnector,
@@ -75,6 +87,118 @@ export type ProjectsKey = keyof typeof projects;
   <section
     class="projects-container w-full flex flex-row flex-wrap justify-center items-start gap-2"
   >
+    <!-- SOLUTIONS -->
+
+    <ProjectTile project="pivotal">
+      <ul class="project-list">
+        <li>
+          <span>
+            Lead the move from <b>Pivotal's</b> local infrastructure, Microsoft Excel
+            spreadsheets edited manually, payments placed by personnel, and invoicing
+            done in Microsoft Word, to a fully automated system.
+          </span>
+        </li>
+        <li>
+          <span
+            >Personally communicated with the client with the purpose of
+            designing and proposing a <b>technical solution</b>.</span
+          >
+        </li>
+        <li>
+          <span
+            >The automated system handled everything between drivers' input, to
+            payments at the end of day, to invoicing at the end of month.</span
+          >
+        </li>
+        <li>
+          Besides the processing infrastructure, designed and developed a
+          front-end system to be used by all personnel, including drivers,
+          accountants, and admins.
+        </li>
+        <li>
+          Incorporated into all levels of the system <b
+            >fraud prevention/detection</b
+          >
+          as required by UK legislation.
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          Designed for and deployed on <TechStackItem
+            key="AWS"
+            inline={true}
+          />.
+        </li>
+        <li>
+          Processing done in <TechStackItem
+            key="AWS"
+            altTitle="Lambda functions"
+            inline={true}
+          /> written in <TechStackItem key="Java" inline={true} />, using timed
+          and user events as triggers, and <TechStackItem
+            key="AWS"
+            altTitle="SQS"
+            inline={true}
+          /> for communication between Lambdas.
+        </li>
+        <li>
+          Data storage in <TechStackItem
+            key="AWS"
+            altTitle="Aurora (MySQL)"
+            inline={true}
+          /> and <TechStackItem key="AWS" altTitle="AWS S3" inline={true} />.
+        </li>
+        <li>
+          UI in <TechStackItem key="Angular" inline={true} /> (with <TechStackItem
+            key="TypeScript"
+            inline={true}
+          />).
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="dekoLink">
+      <ul class="project-list">
+        <li>
+          <span
+            >Worked within Deko's change from monolithic <b>PHP</b> to <TechStackItem
+              key="AWS"
+              altTitle="AWS microservices"
+              inline={true}
+            />. Our team was responsible for designing and building a bridge
+            between the merchant front-end and a specific payment provider, as a
+            template for later work.</span
+          >
+        </li>
+        <li>
+          <span
+            >Personally, worked on designing the solution, inter-team
+            coordination, development, and finally terraform scripts.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          Deployed in <TechStackItem key="JavaSpring" inline={true} />.
+        </li>
+        <li>
+          Deployed in <TechStackItem key="AWS" altTitle="EKS" inline={true} /> with
+          <TechStackItem key="Terraform" inline={true} />.
+        </li>
+        <li>
+          Internal microservices communication through <TechStackItem
+            key="ApacheKafka"
+            inline={true}
+          />.
+        </li>
+        <li>
+          External communication with payment providers through <b
+            >https requests</b
+          > on their respective <b>API</b>.
+        </li>
+      </ul>
+    </ProjectTile>
+
     <ProjectTile project="takozidis">
       <ul class="project-list">
         <li>
@@ -133,6 +257,64 @@ export type ProjectsKey = keyof typeof projects;
         </li>
       </ul>
     </ProjectTile>
+
+    <ProjectTile project="soda">
+      <ul class="project-list">
+        <li>
+          <span
+            >A continuously running system, scrapping and retrieving betting
+            info from various websites, comparing them, and calculating optimum
+            betting strategies to maximise winnings while minimising loses.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          <b>Microservices</b> architecture with <TechStackItem
+            key="Docker"
+            altTitle="docker images"
+            inline={true}
+          /> on <TechStackItem
+            key="Kubernetes"
+            altTitle="k8s cluster"
+            inline={true}
+          /> (<TechStackItem key="AWS" altTitle="AWS EKS" inline={true} />).
+        </li>
+        <li>
+          Scripting and analysis done in <TechStackItem
+            key="Python"
+            inline={true}
+          />.
+          <li>
+            Communication between services and requests handled through <b
+              >async requests</b
+            > module.
+          </li>
+          <li>
+            APIs implemented on top of <TechStackItem
+              key="Fastapi"
+              inline={true}
+            /> with <b>Uvicorn</b>.
+          </li>
+        </li>
+        <li>
+          User and management UI built on <TechStackItem
+            key="HTML5"
+            inline={true}
+          />, <TechStackItem key="CSS3" inline={true} />, and <TechStackItem
+            key="JavaScript"
+            inline={true}
+          /> with <TechStackItem key="WebComponents" inline={true} />, and
+          deployed in <TechStackItem
+            key="AWS"
+            altTitle="AWS (ApiGateway, CloudFront, S3)"
+            inline={true}
+          />.
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <!-- POS -->
 
     <ProjectTile project="instavoltPos">
       <ul class="project-list">
@@ -201,61 +383,7 @@ export type ProjectsKey = keyof typeof projects;
       </ul>
     </ProjectTile>
 
-    <ProjectTile project="soda">
-      <ul class="project-list">
-        <li>
-          <span
-            >A continuously running system, scrapping and retrieving betting
-            info from various websites, comparing them, and calculating optimum
-            betting strategies to maximise winnings while minimising loses.</span
-          >
-        </li>
-      </ul>
-      <ul class="xp-list">
-        <li>
-          <b>Microservices</b> architecture with <TechStackItem
-            key="Docker"
-            altTitle="docker images"
-            inline={true}
-          /> on <TechStackItem
-            key="Kubernetes"
-            altTitle="k8s cluster"
-            inline={true}
-          /> (<TechStackItem key="AWS" altTitle="AWS EKS" inline={true} />).
-        </li>
-        <li>
-          Scripting and analysis done in <TechStackItem
-            key="Python"
-            inline={true}
-          />.
-          <li>
-            Communication between services and requests handled through <b
-              >async requests</b
-            > module.
-          </li>
-          <li>
-            APIs implemented on top of <TechStackItem
-              key="Fastapi"
-              inline={true}
-            /> with <b>Uvicorn</b>.
-          </li>
-        </li>
-        <li>
-          User and management UI built on <TechStackItem
-            key="HTML5"
-            inline={true}
-          />, <TechStackItem key="CSS3" inline={true} />, and <TechStackItem
-            key="JavaScript"
-            inline={true}
-          /> with <TechStackItem key="WebComponents" inline={true} />, and
-          deployed in <TechStackItem
-            key="AWS"
-            altTitle="AWS (ApiGateway, CloudFront, S3)"
-            inline={true}
-          />.
-        </li>
-      </ul>
-    </ProjectTile>
+    <!-- MINOR -->
 
     <ProjectTile project="chaletRompolo">
       <ul class="project-list">
@@ -348,5 +476,20 @@ export type ProjectsKey = keyof typeof projects;
         </li>
       </ul>
     </ProjectTile>
+
+    <!-- <ProjectTile project="myPortfolio">
+      <ul class="project-list">
+        <li>
+          <span>...</span>
+          <ProjectTileLink
+            url="https://github.com/ttetrafon/my-website"
+            title="GitHub repo"
+          />
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>...</li>
+      </ul>
+    </ProjectTile> -->
   </section>
 </article>
