@@ -1,7 +1,7 @@
 {
 	"name": "ttetrafon",
 	"type": "module",
-	"version": "0.0.23",
+	"version": "0.0.24",
 	"engines": {
 		"node": ">=22",
 		"pnpm": ">=10"
@@ -17,12 +17,12 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "13.1.10",
-		"@tailwindcss/vite": "4.2.3",
-		"astro": "6.1.8",
-		"tailwindcss": "4.2.3"
+		"@astrojs/cloudflare": "13.2.1",
+		"@tailwindcss/vite": "4.2.4",
+		"astro": "6.1.9",
+		"tailwindcss": "4.2.4"
 	},
 	"devDependencies": {
-		"wrangler": "4.84.0"
+		"wrangler": "4.85.0"
 	}
 }
