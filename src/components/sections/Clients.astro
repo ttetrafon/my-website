@@ -9,6 +9,12 @@ export interface Client {
   display: boolean;
 }
 
+export const bbcClient: Client = {
+  name: "BBC",
+  logo: "bbc",
+  website: "https://www.bbc.com/",
+  display: true,
+};
 export const dekoClient: Client = {
   name: "DEKO",
   logo: "deko",
@@ -107,6 +113,7 @@ export const clients = {
   instavoltClient,
   mifareClient,
   dekoClient,
+  bbcClient,
   itsaurClient,
   lodigeClient,
   treasureClient,

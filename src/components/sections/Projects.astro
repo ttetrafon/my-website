@@ -3,7 +3,7 @@ import ArticleTitle from "../generic/ArticleTitle.astro";
 import ProjectTile from "../generic/ProjectTile.astro";
 import ProjectTileLink from "../generic/ProjectTileLink.astro";
 import TechStackItem from "../generic/TechStackItem.astro";
-import { dekoClient, type ClientsKey } from "./Clients.astro";
+import { bbcClient, dekoClient, type ClientsKey } from "./Clients.astro";
 
 export interface Project {
   title: string;
@@ -12,6 +12,12 @@ export interface Project {
   clients: ClientsKey[];
 }
 
+export const bbcStreamingMonitoring: Project = {
+  title: "BBC Live Streaming Monitoring",
+  logo: "bbc",
+  date: "2022",
+  clients: ["polarMomentClient", "bbcClient"],
+};
 export const chaletRompolo: Project = {
   title: "Chalet Rompolo",
   logo: "rompolo",
@@ -50,6 +56,11 @@ export const pivotal: Project = {
   date: "2021 - 2023",
   clients: ["polarMomentClient", "pivotalClient"],
 };
+export const pricesScrapper: Project = {
+  title: "Online Prices Scrapper",
+  date: "October 2025",
+  clients: [],
+};
 export const soda: Project = {
   title: "Sport Bet Arbitration System [POC]",
   date: "March - July 2024",
@@ -68,12 +79,14 @@ export const vendingMachineConnector: Project = {
 };
 
 export const projects = {
+  bbcStreamingMonitoring,
   chaletRompolo,
   dekoLink,
   instavoltPos,
   menuEditor,
   myPortfolio,
   pivotal,
+  pricesScrapper,
   soda,
   takozidis,
   vendingMachineConnector,
@@ -195,6 +208,54 @@ export type ProjectsKey = keyof typeof projects;
           External communication with payment providers through <b
             >https requests</b
           > on their respective <b>API</b>.
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="bbcStreamingMonitoring">
+      <ul class="project-list">
+        <li>
+          <span
+            >A live streaming monitoring tool used to produce real-time alerts
+            when streaming video and/or subtitles problems arise.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          Monitoring tool developed in <TechStackItem
+            key="Cpp"
+            inline={true}
+          />. Reads streaming data through <b>RTP (over UDP)</b>, analyses them,
+          and publishes events towards a designated app (over <b>HTTPS</b>).
+        </li>
+        <li>
+          Alert publisher app written in <TechStackItem
+            key="Python"
+            inline={true}
+          />. Receives events from the monitoring tool and publishes them in <TechStackItem
+            key="AWS"
+            altTitle="AWS SNS"
+            inline={true}
+          /> so the appropriate people are notified.
+        </li>
+        <li>
+          Deployed in <TechStackItem
+            key="AWS"
+            altTitle="AWS EC2"
+            inline={true}
+          />.
+        </li>
+        <li>
+          Operational monitoring done through <TechStackItem
+            key="AWS"
+            altTitle="AWS CloudWatch"
+            inline={true}
+          /> and automated instance handling through <TechStackItem
+            key="AWS"
+            altTitle="AWS Lambda"
+            inline={true}
+          />.
         </li>
       </ul>
     </ProjectTile>
@@ -451,6 +512,24 @@ export type ProjectsKey = keyof typeof projects;
             altTitle="AWS S3"
             inline={true}
           />, alongside the website assets for immediate updates.
+        </li>
+      </ul>
+    </ProjectTile>
+
+    <ProjectTile project="pricesScrapper">
+      <ul class="project-list">
+        <li>
+          <span
+            >A web scrapper designed to collect prices of specific projects from
+            specific websites and transmit them to clients for review.</span
+          >
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>Developed in <TechStackItem key="Python" inline={true} />.</li>
+        <li>
+          Deployed in a <b>VPS</b> where it runs on a schedule and transmits the scrapped
+          data to designated clients.
         </li>
       </ul>
     </ProjectTile>
