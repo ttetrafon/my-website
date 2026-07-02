@@ -6,7 +6,9 @@
     "./worker-configuration.d.ts"
   ],
   "exclude": [
-    "dist"
+    "dist",
+    ".wrangler",
+    ".astro"
   ],
   "compilerOptions": {
     "types": [

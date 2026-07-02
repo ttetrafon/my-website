@@ -8,5 +8,6 @@ export default defineConfig({
   adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  compressHTML: true
 });
