@@ -18,6 +18,11 @@ export const bbcStreamingMonitoring: Project = {
   date: "2022",
   clients: ["polarMomentClient", "bbcClient"],
 };
+export const centralisedFormHandlingApi: Project = {
+  title: "Centralised Form Handling API",
+  date: "July 2026",
+  clients: ["arfoulidisClient"],
+};
 export const chaletRompolo: Project = {
   title: "Chalet Rompolo",
   logo: "rompolo",
@@ -80,6 +85,7 @@ export const vendingMachineConnector: Project = {
 
 export const projects = {
   bbcStreamingMonitoring,
+  centralisedFormHandlingApi,
   chaletRompolo,
   dekoLink,
   instavoltPos,
@@ -101,6 +107,43 @@ export type ProjectsKey = keyof typeof projects;
     class="projects-container w-full flex flex-row flex-wrap justify-center items-stretch gap-2"
   >
     <!-- SOLUTIONS -->
+
+    <ProjectTile project="centralisedFormHandlingApi">
+      <ul class="project-list">
+        <li>
+          Created a centralised API for handling forms coming in through various
+          websites.
+        </li>
+        <li>
+          Form data are received, parsed, validated, cleaned, and then forwarded
+          to their intended recipients automatically, based on origin rules.
+        </li>
+        <li>
+          Implemented and automated security measures to limit spam and
+          malicious messages.
+        </li>
+      </ul>
+      <ul class="xp-list">
+        <li>
+          Designed for and deployed on <TechStackItem
+            key="CloudFlare"
+            inline={true}
+          /> and <TechStackItem key="AWS" inline={true} />, with <TechStackItem
+            key="Github"
+            ,
+            altTitle="Github Workflows"
+            inline={true}
+          />
+          for deployment automation.
+        </li>
+        <li>
+          Used <TechStackItem key="Hono" inline={true} /> as the base server.
+        </li>
+        <li>
+          Written in <TechStackItem key="TypeScript" inline={true} />.
+        </li>
+      </ul>
+    </ProjectTile>
 
     <ProjectTile project="pivotal">
       <ul class="project-list">

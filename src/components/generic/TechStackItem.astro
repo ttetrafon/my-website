@@ -46,7 +46,7 @@ const svgContent =
       title={ti.title}
     >
       {svgContent && <Fragment set:html={svgContent} />}
-      {!insert && <span>{ti.title}</span>}
+      {!insert && <span>{altTitle ?? ti.title}</span>}
       {!insert && ti.yearsUsed && (
         <span class="text-xs text-action self-start">
           {ti.yearsUsed.length}+ years
